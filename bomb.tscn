@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bvnx13bq3xc52"]
+
+[ext_resource type="Script" uid="uid://y5rv4xgrwhr4" path="res://Scripts/bomb.gd" id="1_573fp"]
+[ext_resource type="PackedScene" uid="uid://j3si0dnfd0e4" path="res://explode_hit.tscn" id="2_4fn8o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fn8o"]
+shading_mode = 0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4fn8o"]
+material = SubResource("StandardMaterial3D_4fn8o")
+radial_segments = 5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nfxiy"]
+
+[node name="Bomb" type="Area3D" unique_id=429577750]
+script = ExtResource("1_573fp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1120722521]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_4fn8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1639402237]
+shape = SubResource("SphereShape3D_nfxiy")
+
+[node name="expode" parent="." unique_id=866829154 instance=ExtResource("2_4fn8o")]

@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="CustomMapData" format=3 uid="uid://b6ubhkwaxkxlj"]
+
+[ext_resource type="Script" uid="uid://beb6sxrm1eryr" path="res://Placeable_item_data.gd" id="1_gsj4q"]
+[ext_resource type="Script" uid="uid://dbcntfqxx54uy" path="res://custom_map.gd" id="2_g83k5"]
+
+[sub_resource type="Resource" id="Resource_c1bfc"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.39025587, 5.9604645e-08, -2.4616787)
+
+[sub_resource type="Resource" id="Resource_ei4to"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.44155487, 0.37952513, -2.6213996)
+
+[sub_resource type="Resource" id="Resource_7rcja"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.3291057, 0.74091166, -2.2679129)
+
+[sub_resource type="Resource" id="Resource_nbtn1"]
+script = ExtResource("1_gsj4q")
+item_id = "Lewis_Gun"
+position = Vector3(-2.3159485, -2.3841858e-07, 0.58772457)
+
+[sub_resource type="Resource" id="Resource_ol7vw"]
+script = ExtResource("1_gsj4q")
+item_id = "Lewis_Gun"
+position = Vector3(-3.2004924, 0, 5.782399)
+
+[sub_resource type="Resource" id="Resource_1hfpl"]
+script = ExtResource("1_gsj4q")
+item_id = "speed_boat"
+position = Vector3(-7.522738, 4.7683716e-07, 11.436021)
+
+[sub_resource type="Resource" id="Resource_vb4b2"]
+script = ExtResource("1_gsj4q")
+item_id = "speed_boat"
+position = Vector3(-9.782099, 4.7683716e-07, -2.7206655)
+
+[sub_resource type="Resource" id="Resource_qflid"]
+script = ExtResource("1_gsj4q")
+item_id = "player_spawn"
+position = Vector3(-7.712642, 0.9953003, 8.947345)
+
+[sub_resource type="Resource" id="Resource_176l2"]
+script = ExtResource("1_gsj4q")
+position = Vector3(1.2340455, 0, 9.0142975)
+
+[sub_resource type="Resource" id="Resource_5g514"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.76695704, 0, 7.96933)
+
+[sub_resource type="Resource" id="Resource_58wj3"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.47602105, 4.7683716e-07, 6.634712)
+
+[sub_resource type="Resource" id="Resource_t7r37"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.3202176, 4.7683716e-07, 5.598425)
+
+[sub_resource type="Resource" id="Resource_25a1c"]
+script = ExtResource("1_gsj4q")
+position = Vector3(0.02834487, 9.536743e-07, 4.635458)
+
+[sub_resource type="Resource" id="Resource_45088"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.1768446, 9.536743e-07, 3.926393)
+
+[sub_resource type="Resource" id="Resource_matgd"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.3731985, 0, 2.8909535)
+
+[sub_resource type="Resource" id="Resource_pco82"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.29698896, 4.7683716e-07, 2.1496415)
+
+[sub_resource type="Resource" id="Resource_bhuhj"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.23683476, 4.7683716e-07, 1.3554553)
+
+[sub_resource type="Resource" id="Resource_s4irs"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.03328991, 0.3176942, 0.8706286)
+
+[sub_resource type="Resource" id="Resource_8wnam"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.24531293, 0, -0.11719632)
+
+[sub_resource type="Resource" id="Resource_7lrea"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.34078145, 0, -0.8319955)
+
+[sub_resource type="Resource" id="Resource_tmsc2"]
+script = ExtResource("1_gsj4q")
+position = Vector3(-0.24930692, 4.7683716e-07, -2.0606742)
+
+[resource]
+script = ExtResource("2_g83k5")
+placed_items = Array[ExtResource("1_gsj4q")]([SubResource("Resource_c1bfc"), SubResource("Resource_ei4to"), SubResource("Resource_7rcja"), SubResource("Resource_nbtn1"), SubResource("Resource_ol7vw"), SubResource("Resource_1hfpl"), SubResource("Resource_vb4b2"), SubResource("Resource_qflid"), SubResource("Resource_176l2"), SubResource("Resource_5g514"), SubResource("Resource_58wj3"), SubResource("Resource_t7r37"), SubResource("Resource_25a1c"), SubResource("Resource_45088"), SubResource("Resource_matgd"), SubResource("Resource_pco82"), SubResource("Resource_bhuhj"), SubResource("Resource_s4irs"), SubResource("Resource_8wnam"), SubResource("Resource_7lrea"), SubResource("Resource_tmsc2")])

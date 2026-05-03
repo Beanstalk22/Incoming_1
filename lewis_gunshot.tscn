@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cj8g5t4m5bq70"]
+
+[ext_resource type="AudioStream" uid="uid://dgedaao113o4t" path="res://audio/freesound_community-072807_heavy-machine-gun-50-caliber-39765.wav" id="1_ggib5"]
+[ext_resource type="AudioStream" uid="uid://ddr1n4lhqysjq" path="res://audio/soul_serenity_sounds-typing-sound-03-229862.wav" id="2_si2fs"]
+
+[node name="lewis_gunshot" type="Node3D" unique_id=34697690]
+
+[node name="1" type="AudioStreamPlayer3D" parent="." unique_id=524844529]
+stream = ExtResource("1_ggib5")
+
+[node name="2" type="AudioStreamPlayer3D" parent="." unique_id=927838746]
+stream = ExtResource("2_si2fs")
+bus = &"mechanical"
+
+[node name="3" type="AudioStreamPlayer3D" parent="." unique_id=920347579]

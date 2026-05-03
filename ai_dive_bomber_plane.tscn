@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bqqymfilyqj1x"]
+
+[ext_resource type="Script" uid="uid://dx78jkyc2xrn4" path="res://Scripts/dive_bomber.gd" id="1_pnnav"]
+[ext_resource type="PackedScene" uid="uid://cnx6sh0p0r3r2" path="res://enemy_muzzle_spark.tscn" id="3_v0kls"]
+[ext_resource type="PackedScene" uid="uid://rphxj3v6w486" path="res://smoke.tscn" id="4_5g0iu"]
+[ext_resource type="PackedScene" uid="uid://6cv6qxmijgep" path="res://crash_explode.tscn" id="5_bu8qv"]
+[ext_resource type="PackedScene" uid="uid://bbscq4dwhgkdb" path="res://fluzeug.tscn" id="6_pnnav"]
+[ext_resource type="PackedScene" uid="uid://ren5iac1vm8m" path="res://black_smoke.tscn" id="6_r2yny"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2fxh2"]
+size = Vector3(1.5274048, 0.2914734, 1)
+
+[node name="AIPlane" type="Area3D" unique_id=895291063]
+auto_translate_mode = 2
+disable_mode = 2
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_pnnav")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1764129718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018463135, 0.22203064, 0)
+shape = SubResource("BoxShape3D_2fxh2")
+debug_color = Color(0, 18.892157, 17.694866, 1)
+
+[node name="Muzzle" type="Marker3D" parent="." unique_id=1881732872]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.28520823, 0.15873227, -0.82164884)
+
+[node name="enemy_muzzle_spark" parent="Muzzle" unique_id=177112983 instance=ExtResource("3_v0kls")]
+transform = Transform3D(-8.7422775e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.7422775e-10, 0, 0, 0)
+
+[node name="Muzzle2" type="Marker3D" parent="." unique_id=1778919769]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.32003725, 0.15873227, -0.82164884)
+
+[node name="enemy_muzzle_spark" parent="Muzzle2" unique_id=985748422 instance=ExtResource("3_v0kls")]
+transform = Transform3D(-8.7422775e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.7422775e-10, 0, 0, 0)
+
+[node name="SmokeParticles" parent="." unique_id=541127504 instance=ExtResource("4_5g0iu")]
+transform = Transform3D(-0.010855913, 0, -0.9999412, 0, 1, 0, 0.9999412, 0, -0.010855913, 0, 0.16585392, -0.4121179)
+
+[node name="crash_explode" parent="." unique_id=1443165565 instance=ExtResource("5_bu8qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018463135, 0.22203064, 0)
+script = null
+
+[node name="black_smoke" parent="." unique_id=1795798334 instance=ExtResource("6_r2yny")]
+emitting = false
+
+[node name="fluzeug" parent="." unique_id=1092484389 instance=ExtResource("6_pnnav")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)

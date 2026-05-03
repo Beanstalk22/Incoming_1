@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://5kke2itj17g7"]
+
+[ext_resource type="ArrayMesh" uid="uid://57utpwe2jb6r" path="res://Models/speed_boat.obj" id="1_ivohj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ivohj"]
+size = Vector3(1, 1, 0.76904297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dwx2"]
+size = Vector3(1.9555664, 1.4953003, 8.980698)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=2102590242]
+disable_mode = 1
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1967743954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6276751, 1.4631412, 0.5255755)
+shape = SubResource("BoxShape3D_ivohj")
+
+[node name="SpeedBoat" type="MeshInstance3D" parent="." unique_id=592467990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04676199, 0, 0.1963737)
+mesh = ExtResource("1_ivohj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1640891430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05883789, 0.24765015, 0.40706635)
+shape = SubResource("BoxShape3D_4dwx2")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=138040192]

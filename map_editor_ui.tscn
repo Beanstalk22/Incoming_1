@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dc3sqy86hlo5u"]
+
+[node name="Map_editor_Ui" type="Control" unique_id=1019500163]
+layout_mode = 3
+anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1763986140]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 136.0
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2013378718]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1430509923]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=864058907]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=43824806]
+layout_mode = 2
+text = "4
+"

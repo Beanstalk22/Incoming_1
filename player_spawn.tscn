@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dap7cxsoipg2n"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uqpol"]
+height = 0.2
+
+[node name="player_spawn" type="Node3D" unique_id=1671400213]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1577401362]
+mesh = SubResource("CylinderMesh_uqpol")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2021795863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16389644, 0)

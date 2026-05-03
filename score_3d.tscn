@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://benagm838pg5i"]
+
+[ext_resource type="Script" uid="uid://bf0xx7hr4ndx3" path="res://Scripts/score_3d.gd" id="1_xm3xf"]
+
+[node name="Label3D" type="Label3D" unique_id=949337871]
+billboard = 1
+font_size = 40
+script = ExtResource("1_xm3xf")

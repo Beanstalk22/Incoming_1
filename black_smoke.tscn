@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ren5iac1vm8m"]
+
+[sub_resource type="Curve" id="Curve_843hy"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0cj3u"]
+curve = SubResource("Curve_843hy")
+
+[sub_resource type="Gradient" id="Gradient_hjk5g"]
+offsets = PackedFloat32Array(0, 0.20873787, 0.50970876)
+colors = PackedColorArray(1, 0.8833333, 0, 1, 0.33973467, 6.226916e-07, 1.0829419e-07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2iipk"]
+gradient = SubResource("Gradient_hjk5g")
+
+[sub_resource type="Curve" id="Curve_cogg6"]
+_limits = [0.0, 3.0, 0.0, 3.0]
+_data = [Vector2(0, 0.10505843), 0.0, 0.0, 0, 0, Vector2(0.625, 3), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_by60h"]
+curve = SubResource("Curve_cogg6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_843hy"]
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_max = 2.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 3, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_by60h")
+color_ramp = SubResource("GradientTexture1D_2iipk")
+anim_speed_max = 2.0
+anim_speed_curve = SubResource("CurveTexture_0cj3u")
+turbulence_noise_strength = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_curs8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_3dioh"]
+material = SubResource("StandardMaterial3D_curs8")
+radial_segments = 5
+
+[node name="black_smoke" type="GPUParticles3D" unique_id=1795798334]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+amount = 500
+lifetime = 7.0
+speed_scale = 0.8
+randomness = 1.0
+visibility_aabb = AABB(-9.938471, -151.4561, -10.287133, 19.35993, 153.0442, 18.763447)
+trail_lifetime = 1.7
+process_material = SubResource("ParticleProcessMaterial_843hy")
+draw_pass_1 = SubResource("SphereMesh_3dioh")

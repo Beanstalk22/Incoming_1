@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://dpkfpcpew3rsc"]
+
+[ext_resource type="FontFile" uid="uid://l552517ex7v7" path="res://font/CourierPrime-Regular.ttf" id="1_gqa8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hudwa"]
+bg_color = Color(0.13333334, 0.13725491, 0.12941177, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.29411766, 0.3254902, 0.2901961, 1)
+shadow_color = Color(0, 0, 0, 0.9882353)
+shadow_size = 11
+
+[sub_resource type="GDScript" id="GDScript_gqa8o"]
+script/source = "@tool
+extends PanelContainer
+
+@export var rivet_color: Color = Color(\"4B534A\")
+@export var rivet_radius: float = 3.0
+@export var rivet_margin: float = 8.0
+
+func _ready():
+	# Ensure drawing updates if the panel is resized
+	resized.connect(queue_redraw)
+
+func _draw():
+	var rect = get_rect()
+	var positions = [
+		Vector2(rivet_margin, rivet_margin), # Top-Left
+		Vector2(rect.size.x - rivet_margin, rivet_margin), # Top-Right
+		Vector2(rivet_margin, rect.size.y - rivet_margin), # Bottom-Left
+		Vector2(rect.size.x - rivet_margin, rect.size.y - rivet_margin) # Bottom-Right
+	]
+	
+	for pos in positions:
+		draw_circle(pos, rivet_radius, rivet_color)
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2n5b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.29411766, 0.3254902, 0.2901961, 1)
+expand_margin_left = 3.0
+expand_margin_top = 5.0
+expand_margin_right = 9.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdynd"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+bg_color = Color(0.29411766, 0.3254902, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqa8o"]
+bg_color = Color(0.47843137, 0.18039216, 0.14901961, 1)
+border_color = Color(0.47843137, 0.18039216, 0.14901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdq3m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.29411766, 0.3254902, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qeatq"]
+bg_color = Color(5.160841e-06, 5.160843e-06, 5.1608363e-06, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.29411766, 0.3254902, 0.2901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1er4a"]
+bg_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8y2w"]
+content_margin_left = 10.0
+bg_color = Color(0.36078432, 0.36078432, 0.36078432, 0.36078432)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4627451, 0, 0.007843138, 1)
+border_blend = true
+shadow_size = 14
+
+[node name="MainMenuLobby" type="Control" unique_id=1430707019]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="ColorRect" parent="." unique_id=1628043138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0036192264, 0.0045019384, 0.0035170196, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=3577660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 4
+
+[node name="mainvbox" type="VBoxContainer" parent="MarginContainer" unique_id=1642652536]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="headerpanel" type="PanelContainer" parent="MarginContainer/mainvbox" unique_id=1538273446]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hudwa")
+script = SubResource("GDScript_gqa8o")
+
+[node name="PlayerInfo" type="HBoxContainer" parent="MarginContainer/mainvbox/headerpanel" unique_id=1424515087]
+layout_mode = 2
+
+[node name="Ranks" type="Button" parent="MarginContainer/mainvbox/headerpanel/PlayerInfo" unique_id=1350846705]
+layout_mode = 2
+text = "IV"
+
+[node name="Name" type="Button" parent="MarginContainer/mainvbox/headerpanel/PlayerInfo" unique_id=1177881010]
+layout_mode = 2
+text = "Beanstalk
+"
+
+[node name="Control" type="Control" parent="MarginContainer/mainvbox/headerpanel" unique_id=1213798820]
+layout_mode = 2
+
+[node name="currencies" type="HBoxContainer" parent="MarginContainer/mainvbox/headerpanel" unique_id=1151872847]
+layout_mode = 2
+alignment = 2
+
+[node name="Scrap" type="Label" parent="MarginContainer/mainvbox/headerpanel/currencies" unique_id=1798380925]
+layout_mode = 2
+text = "Scrap"
+
+[node name="Coins" type="Label" parent="MarginContainer/mainvbox/headerpanel/currencies" unique_id=1846714565]
+layout_mode = 2
+text = "War bonds"
+
+[node name="ContentHbox" type="HBoxContainer" parent="MarginContainer/mainvbox" unique_id=1411839187]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 100
+
+[node name="NAvigationMenu" type="VBoxContainer" parent="MarginContainer/mainvbox/ContentHbox" unique_id=1444002479]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Lobby" type="Button" parent="MarginContainer/mainvbox/ContentHbox/NAvigationMenu" unique_id=1913452421]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_colors/font_hover_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_fonts/font = ExtResource("1_gqa8o")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2n5b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdynd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gqa8o")
+text = "Lobby
+"
+
+[node name="Operation" type="Button" parent="MarginContainer/mainvbox/ContentHbox/NAvigationMenu" unique_id=864001547]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_colors/font_hover_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_fonts/font = ExtResource("1_gqa8o")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2n5b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdynd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gqa8o")
+text = "Operation"
+
+[node name="Arsena;" type="Button" parent="MarginContainer/mainvbox/ContentHbox/NAvigationMenu" unique_id=1493352139]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_colors/font_hover_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_fonts/font = ExtResource("1_gqa8o")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2n5b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdynd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gqa8o")
+text = "Arsenal
+"
+
+[node name="Profile" type="Button" parent="MarginContainer/mainvbox/ContentHbox/NAvigationMenu" unique_id=806255589]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_colors/font_hover_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_fonts/font = ExtResource("1_gqa8o")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2n5b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdynd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gqa8o")
+text = "Profile
+"
+
+[node name="Space" type="Control" parent="MarginContainer/mainvbox/ContentHbox/NAvigationMenu" unique_id=802708548]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="MarginContainer/mainvbox/ContentHbox/NAvigationMenu" unique_id=2052757878]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4627451, 0, 0.007843138, 1)
+theme_override_colors/font_hover_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_fonts/font = ExtResource("1_gqa8o")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_a2n5b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdynd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gqa8o")
+text = "Exit"
+
+[node name="CenterPanel" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox" unique_id=533338059]
+custom_minimum_size = Vector2(390, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hudwa")
+script = SubResource("GDScript_gqa8o")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel" unique_id=434459640]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer" unique_id=1609667607]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer" unique_id=312842394]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wdq3m")
+
+[node name="Label" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/PanelContainer" unique_id=2146894213]
+layout_mode = 2
+text = "Current Operation"
+
+[node name="ModeSelected" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer" unique_id=1385128016]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qeatq")
+
+[node name="Label" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/ModeSelected" unique_id=1490036692]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "AA warfare"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/ModeSelected" unique_id=1980792900]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/ModeSelected/HBoxContainer" unique_id=143314316]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_1er4a")
+text = "CHANGE"
+
+[node name="GAmeMOde" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer" unique_id=464331258]
+layout_mode = 2
+
+[node name="SquadStatus" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/GAmeMOde" unique_id=765479502]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.54901963, 0.35686275, 1)
+theme_override_font_sizes/font_size = 10
+text = "SquadStatus"
+
+[node name="SquadGrid" type="GridContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer" unique_id=2067724878]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="1" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid" unique_id=1731537779]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid/1" unique_id=1554713561]
+layout_mode = 2
+text = "player 1"
+
+[node name="Button" type="Button" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid/1" unique_id=786071679]
+layout_mode = 2
+
+[node name="2" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid" unique_id=1164852526]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid/2" unique_id=1170434275]
+layout_mode = 2
+text = "player 2"
+
+[node name="3" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid" unique_id=146037371]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid/3" unique_id=45641150]
+layout_mode = 2
+text = "player 3"
+
+[node name="4" type="PanelContainer" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid" unique_id=1242469351]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer/SquadGrid/4" unique_id=1337623984]
+layout_mode = 2
+text = "player 4"
+
+[node name="StartGame" type="Button" parent="MarginContainer/mainvbox/ContentHbox/CenterPanel/MarginContainer/VBoxContainer" unique_id=923090099]
+custom_minimum_size = Vector2(115, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.4627451, 0, 0.007843138, 1)
+theme_override_colors/font_hover_color = Color(0.8745098, 0.8392157, 0.7607843, 1)
+theme_override_fonts/font = ExtResource("1_gqa8o")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_c8y2w")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_gqa8o")
+text = "Defend Raid
+"
+alignment = 0

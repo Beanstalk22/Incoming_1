@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bwt1nahtvuu1k"]
+
+[ext_resource type="Script" uid="uid://b4mcla0e04kyc" path="res://Scripts/player.gd" id="1_jsb3h"]
+[ext_resource type="Script" uid="uid://dlium2d24mdva" path="res://Scripts/score.gd" id="2_onrkg"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0bd2a"]
+points = PackedVector3Array(-0.5, -0.5, 0, 0, -0.5, -0.5, -0.35356304, -0.8535631, 0, 0, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0, -0.8535631, -0.35356304, 0, 0.5, -0.5, 0, -1, 0, 0, -0.8535631, 0.35346514, 0, 0.5, 0.5, -0.35356304, 0.8533673, 0, 0.35346514, -0.8535631, 0, 0.5, 0.5, 0, 0, 0.8533673, -0.35356304, 0, 0.8533673, 0.35346514, 0, 1, 0, 0.35346514, 0.8533673, 0)
+
+[node name="player" type="CharacterBody3D" unique_id=520877204]
+script = ExtResource("1_jsb3h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=669160820]
+shape = SubResource("ConvexPolygonShape3D_0bd2a")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=579513040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="camera" type="Camera3D" parent="CameraPivot" unique_id=1234490962]
+current = true
+far = 1000.0
+
+[node name="InteractRay" type="RayCast3D" parent="CameraPivot/camera" unique_id=1555580737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+target_position = Vector3(0, 0, -4)
+debug_shape_thickness = 5
+
+[node name="HoldPos" type="Marker3D" parent="CameraPivot/camera" unique_id=1550758526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5796169, -0.48994827, -1.0017725)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1270661208]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1489871590]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_onrkg")

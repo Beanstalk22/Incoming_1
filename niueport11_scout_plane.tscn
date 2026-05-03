@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://6bv4r6iarg8"]
+
+[ext_resource type="PackedScene" uid="uid://d0cd5ppfbblr4" path="res://Models/Meshy_AI_Nieuport_11_0412123921_texture.glb" id="1_agry7"]
+[ext_resource type="Texture2D" uid="uid://qenq8u0eed1l" path="res://Texture/Spinning propeller on transparent background.png" id="2_hhntg"]
+
+[sub_resource type="Animation" id="Animation_d5vng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0471976, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h5csf"]
+resource_name = "spinning_prop"
+length = 0.36667
+loop_mode = 1
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 2,
+"values": [Vector3(0.5235988, 0, 0), Vector3(1.0471976, 0, 0), Vector3(1.5707964, 0, 0), Vector3(2.0943952, 0, 0), Vector3(2.6179938, 0, 0), Vector3(3.1415927, 0, 0), Vector3(3.6651914, 0, 0), Vector3(4.1887903, 0, 0), Vector3(4.712389, 0, 0), Vector3(5.2359877, 0, 0), Vector3(5.7595863, 0, 0), Vector3(6.2831855, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vbvpd"]
+resource_name = "spinning_prop_fast"
+length = 0.03333667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.2831855, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7far2"]
+_data = {
+&"RESET": SubResource("Animation_d5vng"),
+&"spinning_prop": SubResource("Animation_h5csf"),
+&"spinning_prop_fast": SubResource("Animation_vbvpd")
+}
+
+[node name="Nieuport11_scout_plane" unique_id=1279648164 instance=ExtResource("1_agry7")]
+
+[node name="Node3D" type="Node3D" parent="." index="1" unique_id=190964593]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, -0.86602545, 0, 0.86602545, 0.49999997, 0, 0.033195853, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D" index="0" unique_id=2091666678]
+transform = Transform3D(-3.0430354e-09, -3.198359e-10, 0.07, -0.0073169926, 0.069616534, 8.787093e-18, -0.069616534, -0.0073169926, -3.059797e-09, -0.8, -0.017245516, 0)
+cast_shadow = 0
+extra_cull_margin = 207.0
+texture_filter = 0
+texture = ExtResource("2_hhntg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1275734056]
+libraries/ = SubResource("AnimationLibrary_7far2")
+autoplay = &"spinning_prop_fast"

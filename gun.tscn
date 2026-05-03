@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Script" uid="uid://bl6b26cn38wq" path="res://Scripts/gun.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://80ro2p38p7cu" path="res://muzzle_spark.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://ylmrg08hhthf" path="res://Models/lewis_gun.tscn" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://ddr1n4lhqysjq" path="res://audio/soul_serenity_sounds-typing-sound-03-229862.wav" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://dlium2d24mdva" path="res://Scripts/score.gd" id="4_sweqy"]
+[ext_resource type="AudioStream" uid="uid://06r1nm5us4d0" path="res://audio/daviddumaisaudio-large-underwater-explosion-190270.wav" id="5_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://dgedaao113o4t" path="res://audio/freesound_community-072807_heavy-machine-gun-50-caliber-39765.wav" id="5_2hs0m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k8v55"]
+size = Vector3(1, 3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5k1dv"]
+data = PackedVector3Array(-0.5, 1.5, 0.5, 0.5, 1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, -0.5, 0.5, -1.5, -0.5, -0.5, 1.5, -0.5, -0.5, -1.5, -0.5, 0.5, -1.5, -0.5, 0.5, 1.5, 0.5, 0.5, 1.5, -0.5, 0.5, -1.5, 0.5, 0.5, 1.5, -0.5, 0.5, -1.5, -0.5, 0.5, -1.5, 0.5, -0.5, 1.5, -0.5, -0.5, 1.5, 0.5, -0.5, -1.5, -0.5, -0.5, 1.5, 0.5, -0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, 1.5, 0.5, -0.5, 1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, 0.5, -0.5, 1.5, -0.5, 0.5, 1.5, -0.5, -0.5, -1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, -1.5, 0.5, 0.5, -1.5, -0.5, -0.5, -1.5, -0.5)
+
+[node name="lewis_gun" type="StaticBody3D" unique_id=599098354]
+collision_layer = 3
+script = ExtResource("1_4flbx")
+
+[node name="gun" type="Node3D" parent="." unique_id=399315133 groups=["player"]]
+
+[node name="base" type="MeshInstance3D" parent="gun" unique_id=1071507592]
+
+[node name="turret" type="MeshInstance3D" parent="gun/base" unique_id=1835255062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1213672, 0)
+cast_shadow = 0
+
+[node name="pivot" type="Node3D" parent="gun/base/turret" unique_id=1835061629]
+transform = Transform3D(-4.3711385e-08, 0, -1, 0, 0.9999999, 0, 0.9999999, 0, -4.371139e-08, -0.24112368, 0.9675491, 0)
+
+[node name="barrel" type="MeshInstance3D" parent="gun/base/turret/pivot" unique_id=479184138]
+transform = Transform3D(-1.0000001, -8.742278e-08, 3.8213714e-15, 0, -4.371139e-08, -1, 8.742278e-08, -0.9999999, 4.3711385e-08, -1.2142453e-07, 0.15906048, -2.7778702)
+cast_shadow = 0
+skeleton = NodePath("../..")
+
+[node name="fps" type="Camera3D" parent="gun/base/turret/pivot/barrel" unique_id=408473947]
+transform = Transform3D(-1, 2.4130728e-15, 8.742278e-08, -8.742278e-08, -7.0780544e-08, -1.0000001, 3.7747574e-15, -1.0000001, 7.0780544e-08, -0.016914813, -3.38, -0.5009999)
+cull_mask = 1048063
+far = 1000.0
+
+[node name="Muzzle" type="Marker3D" parent="gun/base/turret/pivot/barrel" unique_id=90318022]
+transform = Transform3D(1.7484555e-07, -1, 1.3113404e-07, 4.3711424e-08, -1.3113424e-07, -1, 1, 1.7484554e-07, 4.371137e-08, -0.063198216, 3.0584552, -0.25029945)
+gizmo_extents = 0.85
+
+[node name="muzzle_spark" parent="gun/base/turret/pivot/barrel/Muzzle" unique_id=177112983 instance=ExtResource("2_i3pqv")]
+transform = Transform3D(-4.3711356e-08, -8.742295e-08, 1, -2.622682e-07, 1, 8.7422976e-08, -1, -2.622682e-07, -4.371138e-08, 0.22827816, 2.9802322e-08, -0.12703085)
+
+[node name="sfx" type="Node3D" parent="gun/base/turret/pivot/barrel/Muzzle" unique_id=1816227733]
+transform = Transform3D(-2.4781073e-15, -1.0000001, -1.7484555e-07, -8.742268e-08, -1.7484558e-07, 1, -1.0000001, -1.3136217e-14, -8.742286e-08, 2.4982762, -0.06319716, 5.595202)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="gun/base/turret/pivot/barrel/Muzzle/sfx" unique_id=1243387693]
+transform = Transform3D(2.8421713e-14, -8.742285e-08, -1, -1, -1.7484557e-07, -1.3136215e-14, -1.7484557e-07, 1, -8.742285e-08, 5.5952015, 2.498276, 0.06319808)
+stream = ExtResource("5_2hs0m")
+volume_db = 2.0
+pitch_scale = 2.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="gun/base/turret/pivot/barrel/Muzzle/sfx" unique_id=1823294227]
+transform = Transform3D(2.8421713e-14, -8.742285e-08, -1, -1, -1.7484557e-07, -1.3136215e-14, -1.7484557e-07, 1, -8.742285e-08, 5.5952015, 2.498276, 0.06319808)
+stream = ExtResource("3_sweqy")
+pitch_scale = 4.0
+bus = &"mechanical"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="gun/base/turret/pivot/barrel/Muzzle/sfx" unique_id=829042086]
+stream = ExtResource("5_1jxqw")
+
+[node name="Lewis_Gun" parent="gun/base/turret/pivot/barrel" unique_id=623376093 instance=ExtResource("2_onrkg")]
+transform = Transform3D(2, 8.742277e-08, -7.1054274e-15, 1.4210855e-14, -8.742279e-08, 2, 8.742277e-08, -2, -8.742279e-08, 0, -1, -0.185)
+
+[node name="cam_pivot" type="Node3D" parent="gun/base/turret" unique_id=2075980427]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -7.2031217, 2.0176032, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="gun/base/turret/cam_pivot" unique_id=1092516984]
+transform = Transform3D(1.3113412e-07, 0, -0.99999964, 0, 1.4999995, 0, 0.99999994, 0, 1.3113414e-07, 7.891738, 0, 0)
+spring_length = 9.0
+
+[node name="tps" type="Camera3D" parent="gun/base/turret/cam_pivot/SpringArm3D" unique_id=1394687639]
+transform = Transform3D(1, 0, -1.9073889e-07, 0, 0.6666669, 0, 1.9073886e-07, 0, 1.0000004, -1.3129059e-06, -0.33524013, 10.011929)
+fov = 80.0
+far = 1000.0
+
+[node name="MountPos" type="Marker3D" parent="gun/base/turret" unique_id=549632960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1200218, 0.97243595, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="gun" unique_id=1325825306]
+
+[node name="Label" type="Label" parent="gun/CanvasLayer" unique_id=237873569]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+script = ExtResource("4_sweqy")
+
+[node name="Label2" type="Label" parent="gun/CanvasLayer" unique_id=1919591268]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Camera3D" type="Camera3D" parent="gun" unique_id=200804717]
+transform = Transform3D(-0.9659258, -0.12940952, 0.22414389, 2.1855694e-08, 0.8660254, 0.5, -0.25881907, 0.4829629, -0.83651626, 1, 12.212307, -16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1388235080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3323579, 0)
+visible = false
+mesh = SubResource("BoxMesh_k8v55")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1211370815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3323579, 0)
+shape = SubResource("ConcavePolygonShape3D_5k1dv")

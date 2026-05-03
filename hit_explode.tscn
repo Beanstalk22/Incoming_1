@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dlyxf6xwi0oyv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wt4pc"]
+initial_velocity_min = 512.5
+initial_velocity_max = 512.5
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lf8na"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(18.892157, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_a3xkq"]
+material = SubResource("StandardMaterial3D_lf8na")
+
+[node name="hit_explode" type="Node3D" unique_id=523786290]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=386981964]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wt4pc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GPUParticles3D" unique_id=1653669110]
+visible = false
+mesh = SubResource("SphereMesh_a3xkq")

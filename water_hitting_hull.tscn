@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dmypr0ialgq3y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fhhu"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.91, 0.91, 0.91, 1)
+texture_filter = 0
+disable_receive_shadows = true
+stencil_flags = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_24trx"]
+material = SubResource("StandardMaterial3D_8fhhu")
+radius = 1.5
+radial_segments = 4
+rings = 5
+
+[sub_resource type="Curve" id="Curve_33e6q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8030303, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7618775), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="water_hitting_hull" type="CPUParticles3D" unique_id=260022927]
+cast_shadow = 0
+amount = 100
+lifetime = 5.0
+speed_scale = 0.8
+randomness = 1.0
+mesh = SubResource("SphereMesh_24trx")
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+spread = 40.0
+flatness = 1.0
+gravity = Vector3(0, -0.8, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_33e6q")

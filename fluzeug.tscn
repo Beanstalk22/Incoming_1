@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bbscq4dwhgkdb"]
+
+[ext_resource type="PackedScene" uid="uid://cvj3t1mohkpat" path="res://Models/fluzeug.fbx" id="1_tfeh2"]
+[ext_resource type="Script" uid="uid://x7nda4ch2ac4" path="res://Scripts/blade_spin.gd" id="2_o5lbh"]
+
+[sub_resource type="Animation" id="Animation_o5lbh"]
+resource_name = "1"
+length = 0.33333334
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PERVANE:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.72783023, -0.25, 0, 0.25, 0, 0.20423143, -0.011111112, 0.08726647, 0, 0, -0.31936732, -0.011111112, 0.08726646, 0, 0, -0.8429661, -0.011111113, 0.08726647, 0, 0, -1.3665644, -0.01111111, 0.087266386, 0, 0, -1.5132291, -0.01111111, 0.024444124, 0, 0, -0.9896303, -0.011111116, -0.087266475, 0, 0, -0.46603155, -0.01111111, -0.08726645, 0, 0, 0.05756724, -0.01111111, -0.08726647, 0, 0, 0.5811661, -0.01111111, -0.087266475, 0, 0),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PERVANE:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(3.1415255, -0.25, 0, 0.25, 0, 3.1415415, -0.011111112, -2.6623409e-06, 0, 0, 3.1415398, -0.011111112, 2.7815503e-07, 0, 0, 3.1415172, -0.011111113, 3.774961e-06, 0, 0, 3.141345, -0.01111111, 2.8689703e-05, 0, 0, 0.0008729025, -0.01111111, 0.52341205, 0, 0, 9.1480484e-05, -0.011111116, 0.00013023701, 0, 0, 5.621788e-05, -0.01111111, 5.877101e-06, 0, 0, 5.0306087e-05, -0.01111111, 9.852987e-07, 0, 0, 6.008787e-05, -0.01111111, -1.6302972e-06, 0, 0),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PERVANE:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(-3.1406057, -0.25, 0, 0.25, 0, -3.1405714, -0.011111112, -5.7220464e-06, 0, 0, -3.1405444, -0.011111112, -4.4902167e-06, 0, 0, -3.1405046, -0.011111113, -6.635984e-06, 0, 0, -3.1403184, -0.01111111, -3.1034153e-05, 0, 0, 0.00016032031, -0.01111111, -0.5234131, 0, 0, 0.0009553151, -0.011111116, -0.00013249913, 0, 0, 0.0010065153, -0.01111111, -8.533379e-06, 0, 0, 0.001034671, -0.01111111, -4.6926048e-06, 0, 0, 0.001064765, -0.01111111, -5.0156764e-06, 0, 0),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002, 0.26666668, 0.33333334, 0.40000004, 0.4666667, 0.53333336, 0.6)
+}
+
+[sub_resource type="Animation" id="Animation_osrtb"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PERVANE:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.20423143, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PERVANE:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.1415415, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PERVANE:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.1405714, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f87sp"]
+_data = {
+&"1": SubResource("Animation_o5lbh"),
+&"RESET": SubResource("Animation_osrtb")
+}
+
+[node name="fluzeug" unique_id=1092484389 instance=ExtResource("1_tfeh2")]
+script = ExtResource("2_o5lbh")
+
+[node name="PERVANE" parent="." index="17" unique_id=1367439465]
+transform = Transform3D(-0.0049848137, 0.00047745666, -2.3070804e-06, 4.9851765e-06, 0.45317852, 0.009337826, -1.2876113e-06, -0.09386193, 0.04508432, -1.0325154, 0.79665023, -0.043510742)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="23" unique_id=1639692603]
+root_node = NodePath("../PERVANE")
+libraries/ = SubResource("AnimationLibrary_f87sp")
+speed_scale = 5.0

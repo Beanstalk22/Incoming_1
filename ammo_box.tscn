@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://r6q15265cm02"]
+
+[ext_resource type="Script" uid="uid://cjk3lo7xxgbri" path="res://Scripts/AmmoBox.gd" id="1_nwo05"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwo05"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9999998, 0.8423199, 0.4044218, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmxkj"]
+material = SubResource("StandardMaterial3D_nwo05")
+size = Vector3(1, 0.4, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nwo05"]
+points = PackedVector3Array(0.49631202, 0.19999999, 0.49631202, -0.48849615, -0.19999999, -0.48849615, -0.48849615, -0.19999999, 0.48849615, -0.49631202, 0.19999999, -0.49631202, 0.48849615, -0.19999999, -0.48849615, -0.49631202, 0.19999999, 0.49631202, 0.49631202, 0.19999999, -0.49631202, 0.48849615, -0.19999999, 0.48849615)
+
+[node name="AmmoBox" type="RigidBody3D" unique_id=881964428]
+disable_mode = 2
+collision_layer = 3
+script = ExtResource("1_nwo05")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=847772577]
+mesh = SubResource("BoxMesh_xmxkj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1215066551]
+shape = SubResource("ConvexPolygonShape3D_nwo05")

@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://drjotpbyuds5v"]
+
+[ext_resource type="Script" uid="uid://n2oaoos5kfcx" path="res://play.gd" id="1_b5e5s"]
+
+[node name="play" type="Control" unique_id=1310515724]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b5e5s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1951347470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=869737176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=273203408]
+layout_mode = 2
+color = Color(0.41, 0.41, 0.41, 0.6901961)
+
+[node name="BoxContainer2" type="BoxContainer" parent="MarginContainer" unique_id=458744636]
+layout_mode = 2
+alignment = 2
+vertical = true
+
+[node name="Start" type="Button" parent="MarginContainer/BoxContainer2" unique_id=334598005]
+layout_mode = 2
+text = "Start"
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer" unique_id=477698202]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/BoxContainer" unique_id=819659844]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="CheckButton" type="CheckBox" parent="MarginContainer/BoxContainer/VBoxContainer" unique_id=2065877304]
+layout_mode = 2
+text = "Friendly Fire"
+
+[node name="Difficulty" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer" unique_id=364905505]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/Difficulty" unique_id=1463182840]
+layout_mode = 2
+text = "Difficulty"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/BoxContainer/VBoxContainer/Difficulty" unique_id=1389443816]
+layout_mode = 2
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+popup/item_3/text = "Hardest"
+popup/item_3/id = 3
+
+[node name="Difficulty2" type="HBoxContainer" parent="MarginContainer/BoxContainer/VBoxContainer" unique_id=1232181733]
+layout_mode = 2
+alignment = 1
+
+[node name="Friendly Ai" type="Label" parent="MarginContainer/BoxContainer/VBoxContainer/Difficulty2" unique_id=256319189]
+layout_mode = 2
+text = "Firendly"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/BoxContainer/VBoxContainer/Difficulty2" unique_id=1414709555]
+layout_mode = 2
+min_value = 4.0
+max_value = 64.0
+step = 4.0
+value = 4.0
+rounded = true
+alignment = 2
+
+[node name="back" type="Button" parent="MarginContainer" unique_id=1632197095]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/BoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/back" to="." method="_on_back_pressed"]

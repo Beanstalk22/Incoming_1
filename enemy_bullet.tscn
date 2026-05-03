@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bqiodb2hchfm8"]
+
+[ext_resource type="Script" uid="uid://syn1nuyd4bvu" path="res://Scripts/enemy_bullet.gd" id="1_1xapl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xapl"]
+depth_draw_mode = 2
+no_depth_test = true
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.1251005, 0.09787245, 0.062450763, 1)
+texture_filter = 0
+texture_repeat = false
+disable_receive_shadows = true
+stencil_flags = 2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gl7bs"]
+material = SubResource("StandardMaterial3D_1xapl")
+top_radius = 0.05
+bottom_radius = 0.05
+radial_segments = 4
+rings = 1
+
+[node name="enemy_bullet" type="Node3D" unique_id=554862801]
+transform = Transform3D(0.375, 0, 0, -2.0049858e-30, -0.37499997, 2.6226832e-08, 4.5868728e-23, -3.278354e-08, -0.29999998, 0, 0, 0)
+script = ExtResource("1_1xapl")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1106893618]
+transform = Transform3D(10.87148, 0, 0, -2.4074124e-35, -1.6228789e-07, 9.0438, -2.019484e-28, -3.7127147, -3.9531687e-07, 0, -0.030162083, -1.4410863)
+visible = false
+hit_back_faces = false
+collide_with_areas = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1518406252]
+transform = Transform3D(2, 2.6572158e-29, 2.3230119e-36, 0, -4.371139e-08, 2, 5.3144316e-29, -1, -8.742278e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_gl7bs")

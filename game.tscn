@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cy0hjctm0g2aq"]
+
+[ext_resource type="Script" uid="uid://4mh11m82ptbp" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://bwt1nahtvuu1k" path="res://player.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bd35ithxs7fck" path="res://ai_fighter_plane.tscn" id="3_fc0e3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80nbo"]
+sky_top_color = Color(0.5149432, 0.5881974, 0.6860055, 1)
+sky_horizon_color = Color(0.77623916, 0.78759825, 0.80422556, 1)
+ground_bottom_color = Color(0.17042685, 0.14260906, 0.11131006, 1)
+ground_horizon_color = Color(0.77623916, 0.78759825, 0.80422556, 1)
+
+[sub_resource type="Sky" id="Sky_e2o6t"]
+sky_material = SubResource("ProceduralSkyMaterial_80nbo")
+
+[sub_resource type="Environment" id="Environment_feb5d"]
+background_mode = 2
+sky = SubResource("Sky_e2o6t")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_80nbo"]
+data = PackedVector3Array(150, 0, 150, -150, 0, 150, 150, 0, -150, -150, 0, 150, -150, 0, -150, 150, 0, -150)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fc0e3"]
+size = Vector2(300, 300)
+
+[node name="game" type="Node3D" unique_id=1304532356]
+script = ExtResource("1_80nbo")
+
+[node name="player" parent="." unique_id=520877204 groups=["player"] instance=ExtResource("2_feb5d")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1546837626]
+environment = SubResource("Environment_feb5d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=789720386]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=102487652]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1553035006]
+shape = SubResource("ConcavePolygonShape3D_80nbo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1222825667]
+mesh = SubResource("PlaneMesh_fc0e3")
+skeleton = NodePath("../..")
+
+[node name="AIPlane" parent="." unique_id=895291063 instance=ExtResource("3_fc0e3")]
+
+[node name="AIPlane2" parent="." unique_id=448018976 instance=ExtResource("3_fc0e3")]
+
+[connection signal="body_entered" from="AIPlane" to="AIPlane" method="_on_body_entered"]
+[connection signal="body_entered" from="AIPlane2" to="AIPlane2" method="_on_body_entered"]

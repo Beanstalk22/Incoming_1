@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://j3si0dnfd0e4"]
+
+[ext_resource type="Script" uid="uid://biog7mxshk20q" path="res://Scripts/explode_hit.gd" id="1_1c3yh"]
+[ext_resource type="AudioStream" uid="uid://bw54j0gn8ocne" path="res://audio/impact.wav" id="2_6ii4b"]
+[ext_resource type="AudioStream" uid="uid://cyr8jdae00gs" path="res://audio/arrow_whizz.wav" id="3_ukfbk"]
+[ext_resource type="AudioStream" uid="uid://6b4rsivemg2b" path="res://audio/whizz.wav" id="4_gnhvs"]
+
+[sub_resource type="Curve" id="Curve_6ii4b"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ukfbk"]
+curve = SubResource("Curve_6ii4b")
+
+[sub_resource type="Curve" id="Curve_1c3yh"]
+_limits = [-1.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 94.16344), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6ii4b"]
+curve = SubResource("Curve_1c3yh")
+
+[sub_resource type="Gradient" id="Gradient_6ii4b"]
+offsets = PackedFloat32Array(0.17961165, 0.9951456)
+colors = PackedColorArray(0, 0, 0, 1, 0.8380289, 0.4018813, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ukfbk"]
+gradient = SubResource("Gradient_6ii4b")
+
+[sub_resource type="Gradient" id="Gradient_1c3yh"]
+offsets = PackedFloat32Array(0, 0.6747573)
+colors = PackedColorArray(0.95, 0.6016666, 0, 1, 0.18, 0.18, 0.18, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6ii4b"]
+gradient = SubResource("Gradient_1c3yh")
+
+[sub_resource type="Curve" id="Curve_ukfbk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7166667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gnhvs"]
+curve = SubResource("Curve_ukfbk")
+
+[sub_resource type="Curve" id="Curve_8rn37"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5277778, 1.0661479), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bir8h"]
+curve = SubResource("Curve_8rn37")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ii4b"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+direction = Vector3(0, 0, 1)
+spread = 90.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_bir8h")
+color_ramp = SubResource("GradientTexture1D_6ii4b")
+color_initial_ramp = SubResource("GradientTexture1D_ukfbk")
+alpha_curve = SubResource("CurveTexture_ukfbk")
+emission_curve = SubResource("CurveTexture_gnhvs")
+anim_speed_curve = SubResource("CurveTexture_6ii4b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3t3u"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j7ntb"]
+material = SubResource("StandardMaterial3D_t3t3u")
+top_radius = 0.35
+bottom_radius = 0.02
+height = 1.5
+radial_segments = 4
+rings = 1
+
+[node name="expode" type="GPUParticles3D" unique_id=866829154]
+cast_shadow = 0
+emitting = false
+amount = 75
+lifetime = 1.5
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6ii4b")
+draw_pass_1 = SubResource("CylinderMesh_j7ntb")
+script = ExtResource("1_1c3yh")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1311387497]
+
+[node name="Impact" type="AudioStreamPlayer" parent="Node3D" unique_id=930216843]
+stream = ExtResource("2_6ii4b")
+
+[node name="ArrowWhizz" type="AudioStreamPlayer" parent="Node3D" unique_id=1063353944]
+stream = ExtResource("3_ukfbk")
+
+[node name="Whizz" type="AudioStreamPlayer" parent="Node3D" unique_id=1030227261]
+stream = ExtResource("4_gnhvs")

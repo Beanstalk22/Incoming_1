@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ds8gcfwqwjph7"]
+
+[ext_resource type="PackedScene" uid="uid://cvj3t1mohkpat" path="res://Models/fluzeug.fbx" id="1_21mfu"]
+
+[node name="fluzeug" unique_id=1532004217 instance=ExtResource("1_21mfu")]

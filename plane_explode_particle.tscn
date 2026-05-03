@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53bu43gr7uor"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d1vh5"]
+direction = Vector3(1, 1, 0)
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, -1)
+scale_min = 2.0
+scale_max = 2.0
+anim_speed_min = -3.0
+anim_speed_max = 7.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0egx"]
+shading_mode = 0
+specular_mode = 1
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gtm58"]
+material = SubResource("StandardMaterial3D_q0egx")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="plane_explode" type="GPUParticles3D"]
+amount = 15
+speed_scale = 3.0
+randomness = 1.0
+fixed_fps = 24
+process_material = SubResource("ParticleProcessMaterial_d1vh5")
+draw_pass_1 = SubResource("BoxMesh_gtm58")
