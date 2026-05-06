@@ -15,6 +15,10 @@ sky_material = SubResource("ProceduralSkyMaterial_7udqd")
 [sub_resource type="Environment" id="Environment_13cpq"]
 background_mode = 2
 sky = SubResource("Sky_xsg28")
+tonemap_mode = 3
+fog_enabled = true
+adjustment_enabled = true
+adjustment_saturation = 0.7
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7udqd"]
 size = Vector2(200, 200)
@@ -113,14 +117,13 @@ editor = NodePath("../../../..")
 
 [node name="Mode" type="Button" parent="CanvasLayer/Control" unique_id=837712745]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
-grow_horizontal = 0
+offset_left = 151.0
+offset_top = -32.0
+offset_right = 203.0
+offset_bottom = -1.0
 grow_vertical = 0
 text = "Mode"
 
@@ -134,17 +137,32 @@ offset_bottom = 31.0
 grow_horizontal = 0
 text = "Delete"
 
-[node name="FileDialog" type="FileDialog" parent="." unique_id=1403428710]
-oversampling_override = 1.0
-initial_position = 1
-access = 2
-use_native_dialog = true
+[node name="Exit" type="Button" parent="CanvasLayer/Control" unique_id=935945347]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Exit"
 
 [node name="ErrorDialog" type="AcceptDialog" parent="." unique_id=123459827]
+oversampling_override = 1.0
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=2111905670]
+oversampling_override = 1.0
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=773540324]
+offset_right = 68.5
+offset_bottom = 31.0
 
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/PanelContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/PanelContainer/HBoxContainer/Undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/PanelContainer/HBoxContainer/Redo" to="." method="_on_redo_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Mode" to="." method="_on_mode_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Delete" to="." method="_on_delete_pressed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="CanvasLayer/Control/Exit" to="." method="_on_exit_pressed"]

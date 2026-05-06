@@ -37,6 +37,7 @@ driver/driver="PipeWire"
 
 GameManager="*uid://dmr6qoro2cjeo"
 ItemRegistry="*uid://bs8tjxgmuit2o"
+MapFiles="*uid://ce08bf0orxcpx"
 
 [debug]
 

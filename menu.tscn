@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.7607843, 0.69803923, 0.5019608, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1451229777]
 layout_mode = 1
@@ -33,7 +34,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=523057606]
 layout_mode = 2
-color = Color(0.556953, 0.556953, 0.556953, 1)
+color = Color(0.10747976, 0.10747973, 0.10747973, 0.3882353)
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer" unique_id=1334221215]
 layout_mode = 2

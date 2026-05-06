@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="CustomMapData" format=3]
+
+[ext_resource type="Script" path="res://Placeable_item_data.gd" id="1_h0dc1"]
+[ext_resource type="Script" path="res://custom_map.gd" id="2_sllhx"]
+
+[sub_resource type="Resource" id="Resource_ey5h6"]
+script = ExtResource("1_h0dc1")
+item_id = "speed_boat"
+position = Vector3(-0.08088541, 4.7683716e-07, -8.993158)
+
+[sub_resource type="Resource" id="Resource_38gip"]
+script = ExtResource("1_h0dc1")
+item_id = "player_spawn"
+position = Vector3(0.13869286, 0.99530053, -5.4065776)
+
+[sub_resource type="Resource" id="Resource_xqkcq"]
+script = ExtResource("1_h0dc1")
+position = Vector3(-3.9238844, 0, -4.5183277)
+
+[sub_resource type="Resource" id="Resource_8c2us"]
+script = ExtResource("1_h0dc1")
+item_id = "Lewis_Gun"
+position = Vector3(-2.3714366, 0, -0.7851155)
+
+[resource]
+script = ExtResource("2_sllhx")
+placed_items = Array[ExtResource("1_h0dc1")]([SubResource("Resource_ey5h6"), SubResource("Resource_38gip"), SubResource("Resource_xqkcq"), SubResource("Resource_8c2us")])
+sun_rotation = Vector3(-1.0471976, 2.6179938, 0)
+fog_density = 0.05

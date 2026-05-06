@@ -32,34 +32,37 @@ func load_maps_from_folder():
 	map_list.clear()
 	loaded_maps.clear()
 	
-	# If players create these maps, 'user://' is better because 'res://' is read-only in exported games.
-	# For now, we will stick to your res:// path.
-	var path = "res://Maps/new_map/"
-	var dir = DirAccess.open(path)
+	var base_path = "res://Maps/"
 	
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		
-		while file_name != "":
-			# Look for .tres instead of .tscn because CustomMapData is a Resource
-			if not dir.current_is_dir() and file_name.ends_with(".tres"):
-				
-				# Load the resource file into memory
-				var full_path = path + file_name
-				var map_resource = ResourceLoader.load(full_path) as CustomMapData
-				
-				# If it successfully loaded as CustomMapData, add it to our list
-				if map_resource:
-					loaded_maps.append(map_resource)
-					
-					# Use the exported map_name string you defined in custom_map_data.gd
-					map_list.add_item(map_resource.map_name)
-					
-			file_name = dir.get_next()
-	else:
-		print("Could not open the Maps directory.")
+	# 1. Get a list of all folder names inside res://Maps/
+	if not DirAccess.dir_exists_absolute(base_path):
+		DirAccess.make_dir_recursive_absolute(base_path)
+		return
 
+	var folders = DirAccess.get_directories_at(base_path)
+	
+	for folder_name in folders:
+		
+		var map_file_path = base_path.path_join(folder_name).path_join("map_data.tres")
+		
+		if FileAccess.file_exists(map_file_path):
+			var map_resource = ResourceLoader.load(map_file_path) as CustomMapData
+			
+			if map_resource:
+				loaded_maps.append(map_resource)
+				
+				# Use the map_name from the resource. 
+				# If map_name is empty, fallback to the folder name.
+				var display_name = map_resource.map_name
+				if display_name == "":
+					display_name = folder_name
+				
+				# Add to ItemList and store the path in metadata for easy retrieval
+				var idx = map_list.add_item(display_name)
+				map_list.set_item_metadata(idx, map_file_path)
+
+	if loaded_maps.is_empty():
+		print("No maps found in ", base_path)
 # ==========================================
 # 4. SIGNAL FUNCTIONS
 # ==========================================
@@ -82,12 +85,17 @@ func _on_play_pressed() -> void:
 
 func _on_delete_pressed():
 	if selected_map_index != -1:
-		# Optional: Actually delete the file from the hard drive
-		# var file_to_delete = "res://Maps/" + ... 
-		# DirAccess.remove_absolute(file_to_delete)
+		# Get the path we stored in metadata
+		var map_file_path = map_list.get_item_metadata(selected_map_index)
+		var folder_to_delete = map_file_path.get_base_dir() # Gets the folder path
+		
+		# Remove the folder and its contents
+		# Note: DirAccess.remove_absolute only works on empty folders.
+		# You might need a helper function to clear the folder first.
+		OS.move_to_trash(ProjectSettings.globalize_path(folder_to_delete))
 		
 		map_list.remove_item(selected_map_index)
-		loaded_maps.remove_at(selected_map_index) # Remove from our data array too!
+		loaded_maps.remove_at(selected_map_index)
 		
 		selected_map_index = -1
 		play.disabled = true
@@ -101,5 +109,12 @@ func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://menu.tscn")
 
 func _on_load_pressed() -> void:
-	# Later: Pass loaded_maps[selected_map_index] to the map_editor.tscn
-	pass
+	if selected_map_index != -1:
+		# Get the path from metadata
+		var map_path = map_list.get_item_metadata(selected_map_index)
+		
+		# Tell the global script which map we are working on
+		MapFiles.current_map_path = map_path
+		
+		# Go to the editor
+		get_tree().change_scene_to_file("res://map_editor.tscn")
