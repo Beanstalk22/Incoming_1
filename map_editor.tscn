@@ -22,9 +22,13 @@ adjustment_saturation = 0.7
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7udqd"]
 size = Vector2(200, 200)
+subdivide_width = 100
+subdivide_depth = 100
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xsg28"]
 data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7udqd"]
 
 [node name="MapEditor" type="Node3D" unique_id=460645230]
 script = ExtResource("1_7udqd")
@@ -54,6 +58,7 @@ environment = SubResource("Environment_13cpq")
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain" unique_id=490284549]
 
 [node name="1" type="MeshInstance3D" parent="Terrain/StaticBody3D" unique_id=989698228]
+transform = Transform3D(0.99971646, 0.0123508265, 0.020356013, -0.012174862, 0.99988765, -0.008745207, -0.020461744, 0.008494881, 0.99975455, 0.0105268955, 0.035863876, 0.26208448)
 mesh = SubResource("PlaneMesh_7udqd")
 skeleton = NodePath("../..")
 
@@ -115,17 +120,20 @@ layout_mode = 2
 script = ExtResource("4_xsg28")
 editor = NodePath("../../../..")
 
-[node name="Mode" type="Button" parent="CanvasLayer/Control" unique_id=837712745]
+[node name="modes" type="Button" parent="CanvasLayer/Control" unique_id=623282017]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 151.0
+offset_left = 150.0
 offset_top = -32.0
-offset_right = 203.0
+offset_right = 265.0
 offset_bottom = -1.0
 grow_vertical = 0
-text = "Mode"
+scale = Vector2(0.9320504, 0.91819656)
+action_mode = 0
+text = "Mode
+"
 
 [node name="Delete" type="Button" parent="CanvasLayer/Control" unique_id=1201152090]
 layout_mode = 1
@@ -144,11 +152,46 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_top = -31.0
+offset_left = -40.0
+offset_top = -232.0
+offset_right = -3.0
+offset_bottom = -201.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Exit"
+
+[node name="Control" type="Control" parent="CanvasLayer/Control" unique_id=2070452163]
+layout_mode = 1
+anchor_left = 0.7222222
+anchor_top = 0.93333334
+anchor_right = 0.7222222
+anchor_bottom = 0.93333334
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Terrain_settings" type="HBoxContainer" parent="CanvasLayer/Control/Control" unique_id=1098769337]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 31.0
+
+[node name="Add" type="Button" parent="CanvasLayer/Control/Control/Terrain_settings" unique_id=278451339]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7udqd")
+text = "ADD"
+
+[node name="Subtract" type="Button" parent="CanvasLayer/Control/Control/Terrain_settings" unique_id=863317675]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7udqd")
+text = "Subtract"
+
+[node name="Smooth" type="Button" parent="CanvasLayer/Control/Control/Terrain_settings" unique_id=2133752237]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_7udqd")
+text = "Smooth"
 
 [node name="ErrorDialog" type="AcceptDialog" parent="." unique_id=123459827]
 oversampling_override = 1.0
@@ -163,6 +206,9 @@ offset_bottom = 31.0
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/PanelContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/PanelContainer/HBoxContainer/Undo" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/PanelContainer/HBoxContainer/Redo" to="." method="_on_redo_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/Mode" to="." method="_on_mode_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/modes" to="." method="_on_modes_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="CanvasLayer/Control/Control/Terrain_settings/Add" to="." method="_on_add_toggled"]
+[connection signal="toggled" from="CanvasLayer/Control/Control/Terrain_settings/Subtract" to="." method="_on_subtract_toggled"]
+[connection signal="toggled" from="CanvasLayer/Control/Control/Terrain_settings/Smooth" to="." method="_on_smooth_toggled"]

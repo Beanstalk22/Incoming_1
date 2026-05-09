@@ -24,7 +24,7 @@ config/version="0.0.1"
 run/main_scene="uid://d1mldo84j5um4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/flush_stdout_on_print=true
-run/max_fps=45
+run/max_fps=55
 boot_splash/stretch_mode=3
 config/icon="res://icon.svg"
 
@@ -52,6 +52,10 @@ window/size/mode=2
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/default_font_antialiasing=0
 
 [input]
 

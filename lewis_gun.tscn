@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bscliafwss0ao"]
-
-[ext_resource type="PackedScene" uid="uid://cy3knqlaa3wo2" path="res://Models/Meshy_AI_Lewis_Gun_0203091539_texture.glb" id="1_hmtsv"]
-
-[node name="LewisGun" instance=ExtResource("1_hmtsv")]

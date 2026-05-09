@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="CustomMapData" format=3]
+
+[ext_resource type="Script" path="res://Placeable_item_data.gd" id="1_0dvvy"]
+[ext_resource type="Script" path="res://custom_map.gd" id="2_0ddt2"]
+
+[sub_resource type="Resource" id="Resource_lb5rn"]
+script = ExtResource("1_0dvvy")
+item_id = "speed_boat"
+position = Vector3(9.61487, -1.551055, 14.950927)
+
+[sub_resource type="Resource" id="Resource_lnhoi"]
+script = ExtResource("1_0dvvy")
+item_id = "speed_boat"
+position = Vector3(-4.208723, 2.861023e-06, 26.913763)
+
+[sub_resource type="Resource" id="Resource_fom3v"]
+script = ExtResource("1_0dvvy")
+item_id = "speed_boat"
+position = Vector3(40.40297, -5.3737392, 17.924847)
+
+[sub_resource type="Resource" id="Resource_eq8ga"]
+script = ExtResource("1_0dvvy")
+item_id = "player_spawn"
+position = Vector3(40.324814, -4.3784394, 21.54723)
+
+[sub_resource type="Resource" id="Resource_7r1y8"]
+script = ExtResource("1_0dvvy")
+position = Vector3(40.07965, -4.3784394, 15.671582)
+
+[sub_resource type="Resource" id="Resource_ydsqw"]
+script = ExtResource("1_0dvvy")
+position = Vector3(39.83119, -4.009087, 15.658971)
+
+[sub_resource type="Resource" id="Resource_aqgga"]
+script = ExtResource("1_0dvvy")
+position = Vector3(39.94058, -3.6779103, 15.607032)
+
+[sub_resource type="Resource" id="Resource_uhvt2"]
+script = ExtResource("1_0dvvy")
+position = Vector3(40.055443, -3.394072, 15.717678)
+
+[sub_resource type="Resource" id="Resource_u860q"]
+script = ExtResource("1_0dvvy")
+position = Vector3(40.011723, -3.1049929, 15.760664)
+
+[sub_resource type="Resource" id="Resource_sqin6"]
+script = ExtResource("1_0dvvy")
+position = Vector3(39.93965, -2.8162665, 15.675376)
+
+[sub_resource type="Resource" id="Resource_4k1t1"]
+script = ExtResource("1_0dvvy")
+position = Vector3(39.99243, -2.5319977, 15.698483)
+
+[sub_resource type="Resource" id="Resource_2dl5h"]
+script = ExtResource("1_0dvvy")
+position = Vector3(39.99614, -2.263342, 15.692434)
+
+[sub_resource type="Resource" id="Resource_7vlwe"]
+script = ExtResource("1_0dvvy")
+position = Vector3(39.98211, -1.9950967, 15.74577)
+
+[sub_resource type="Resource" id="Resource_mawxl"]
+script = ExtResource("1_0dvvy")
+item_id = "Lewis_Gun"
+position = Vector3(10.533817, -0.8961234, 18.320595)
+
+[sub_resource type="Resource" id="Resource_7tvxu"]
+script = ExtResource("1_0dvvy")
+item_id = "Lewis_Gun"
+position = Vector3(42.11018, -5.150876, 27.687391)
+
+[resource]
+script = ExtResource("2_0ddt2")
+map_name = "editedMap"
+placed_items = Array[ExtResource("1_0dvvy")]([SubResource("Resource_lb5rn"), SubResource("Resource_lnhoi"), SubResource("Resource_fom3v"), SubResource("Resource_eq8ga"), SubResource("Resource_7r1y8"), SubResource("Resource_ydsqw"), SubResource("Resource_aqgga"), SubResource("Resource_uhvt2"), SubResource("Resource_u860q"), SubResource("Resource_sqin6"), SubResource("Resource_4k1t1"), SubResource("Resource_2dl5h"), SubResource("Resource_7vlwe"), SubResource("Resource_mawxl"), SubResource("Resource_7tvxu")])
+sun_rotation = Vector3(-1.0471976, 2.6179938, 0)
+fog_density = 0.05

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://ylmrg08hhthf"]
-
-[ext_resource type="PackedScene" uid="uid://b2mpivo2h8yog" path="res://Models/Lewis_Gun.glb" id="1_jxl50"]
-
-[node name="Lewis_Gun" unique_id=1249796601 instance=ExtResource("1_jxl50")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
