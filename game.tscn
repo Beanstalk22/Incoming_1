@@ -1,53 +1,94 @@
 [gd_scene format=3 uid="uid://cy0hjctm0g2aq"]
 
-[ext_resource type="Script" uid="uid://4mh11m82ptbp" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://4mh11m82ptbp" path="res://GlobalScrpits/game.gd" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bwt1nahtvuu1k" path="res://player.tscn" id="2_feb5d"]
-[ext_resource type="PackedScene" uid="uid://bd35ithxs7fck" path="res://ai_fighter_plane.tscn" id="3_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://cj0ltq8h8s3ad" path="res://Texture/EveningSkyHDRI029B_1K_TONEMAPPED.jpg" id="3_eow3j"]
+[ext_resource type="Script" uid="uid://b1oa1wxigy7to" path="res://game_ui.gd" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://bia8jkw5d3nyj" path="res://wave_manager.gd" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://w1s1bmh070i8" path="res://PauseMenu.tscn" id="5_7jktm"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_80nbo"]
-sky_top_color = Color(0.5149432, 0.5881974, 0.6860055, 1)
-sky_horizon_color = Color(0.77623916, 0.78759825, 0.80422556, 1)
-ground_bottom_color = Color(0.17042685, 0.14260906, 0.11131006, 1)
-ground_horizon_color = Color(0.77623916, 0.78759825, 0.80422556, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_feb5d"]
+size = Vector2(500, 500)
+subdivide_width = 100
+subdivide_depth = 100
 
-[sub_resource type="Sky" id="Sky_e2o6t"]
-sky_material = SubResource("ProceduralSkyMaterial_80nbo")
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fc0e3"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
-[sub_resource type="Environment" id="Environment_feb5d"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j5wjh"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_cover = ExtResource("3_eow3j")
+
+[sub_resource type="Sky" id="Sky_vef74"]
+sky_material = SubResource("ProceduralSkyMaterial_j5wjh")
+
+[sub_resource type="Environment" id="Environment_fc0e3"]
 background_mode = 2
-sky = SubResource("Sky_e2o6t")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_80nbo"]
-data = PackedVector3Array(150, 0, 150, -150, 0, 150, 150, 0, -150, -150, 0, 150, -150, 0, -150, 150, 0, -150)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_fc0e3"]
-size = Vector2(300, 300)
+sky = SubResource("Sky_vef74")
+tonemap_mode = 3
+adjustment_enabled = true
+adjustment_saturation = 0.7
 
 [node name="game" type="Node3D" unique_id=1304532356]
 script = ExtResource("1_80nbo")
 
 [node name="player" parent="." unique_id=520877204 groups=["player"] instance=ExtResource("2_feb5d")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1546837626]
-environment = SubResource("Environment_feb5d")
+[node name="Game_ui" type="Control" parent="." unique_id=1040802992]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_7jktm")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=789720386]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[node name="Waves" type="Label" parent="Game_ui" unique_id=2117417928]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_right = 25.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Waves"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=102487652]
-disable_mode = 1
+[node name="EnemiesLeft" type="Label" parent="Game_ui" unique_id=940342649]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 91.0
+grow_vertical = 0
+text = "Remaining: "
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1553035006]
-shape = SubResource("ConcavePolygonShape3D_80nbo")
+[node name="Pause" parent="Game_ui" unique_id=632139320 instance=ExtResource("5_7jktm")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1222825667]
-mesh = SubResource("PlaneMesh_fc0e3")
+[node name="Terrain" type="Node3D" parent="." unique_id=934615001]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain" unique_id=50471218]
+
+[node name="terrainmesh" type="MeshInstance3D" parent="Terrain/StaticBody3D" unique_id=1631138626]
+unique_name_in_owner = true
+transform = Transform3D(0.99971646, 0.0123508265, 0.020356013, -0.012174862, 0.99988765, -0.008745207, -0.020461744, 0.008494881, 0.99975455, 0.0105268955, 0.035863876, 0.26208448)
+mesh = SubResource("PlaneMesh_feb5d")
 skeleton = NodePath("../..")
 
-[node name="AIPlane" parent="." unique_id=895291063 instance=ExtResource("3_fc0e3")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D" unique_id=1372234027]
+shape = SubResource("ConcavePolygonShape3D_fc0e3")
 
-[node name="AIPlane2" parent="." unique_id=448018976 instance=ExtResource("3_fc0e3")]
+[node name="Environment" type="Node3D" parent="." unique_id=239164774]
 
-[connection signal="body_entered" from="AIPlane" to="AIPlane" method="_on_body_entered"]
-[connection signal="body_entered" from="AIPlane2" to="AIPlane2" method="_on_body_entered"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1985635433]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1285885532]
+environment = SubResource("Environment_fc0e3")
+
+[node name="Node" type="Node" parent="." unique_id=1036432489]
+script = ExtResource("4_fc0e3")

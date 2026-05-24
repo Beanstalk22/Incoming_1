@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://csle4go625hm4"]
+
+[ext_resource type="PackedScene" uid="uid://d08bfdsb1vhh1" path="res://Models/Binocular.glb" id="1_p8kbs"]
+
+[node name="Binocular" type="Node3D" unique_id=2034934577]
+
+[node name="Binocular" parent="." unique_id=1758081070 instance=ExtResource("1_p8kbs")]
+transform = Transform3D(-0.2, 1.7484556e-08, -7.6427423e-16, 0, -8.742278e-09, -0.2, -1.7484556e-08, -0.2, 8.742278e-09, -0.2689141, 0, 0)

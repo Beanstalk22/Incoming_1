@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dh815cmberbxl"]
+
+[ext_resource type="Script" uid="uid://c0nlvxt2axtn3" path="res://arsenal.gd" id="1_8meu1"]
+
+[node name="arsenal" type="Control" unique_id=542897144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8meu1")
+
+[node name="Arsenal" type="Control" parent="." unique_id=1429417998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="Panel" parent="Arsenal" unique_id=696810342]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="Arsenal/buttons" unique_id=1382876957]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.46618086, 0.4661808, 0.4661808, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Arsenal/buttons" unique_id=1255268018]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.5
+offset_top = -31.0
+offset_right = 154.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Crew" type="Button" parent="Arsenal/buttons/HBoxContainer" unique_id=1220777661]
+layout_mode = 2
+text = "Crew"
+
+[node name="Weapons" type="Button" parent="Arsenal/buttons/HBoxContainer" unique_id=573269000]
+layout_mode = 2
+text = "Weapons"
+
+[node name="Armor" type="Button" parent="Arsenal/buttons/HBoxContainer" unique_id=1640775093]
+layout_mode = 2
+text = "Armor"
+
+[node name="Cosmetics" type="Button" parent="Arsenal/buttons/HBoxContainer" unique_id=575732783]
+layout_mode = 2
+text = "Cosmetics"
+
+[node name="Vehicles" type="Button" parent="Arsenal/buttons/HBoxContainer" unique_id=1874847246]
+layout_mode = 2
+text = "Vehicles"
+
+[node name="CurrencyPanel" type="Panel" parent="Arsenal" unique_id=1000940766]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Arsenal/CurrencyPanel" unique_id=1432793181]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Arsenal/CurrencyPanel/HBoxContainer" unique_id=1588038563]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Arsenal/CurrencyPanel" unique_id=1409469134]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="back" type="Button" parent="Arsenal/CurrencyPanel" unique_id=1911722904]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 50.0
+text = "back"
+
+[node name="Control" type="Control" parent="Arsenal" unique_id=682686741]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="crew_panel" type="PanelContainer" parent="Arsenal/Control" unique_id=2064052774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weapon_panel" type="PanelContainer" parent="Arsenal/Control" unique_id=762660443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="armor_panel" type="PanelContainer" parent="Arsenal/Control" unique_id=2136462832]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cosmetics" type="PanelContainer" parent="Arsenal/Control" unique_id=74946972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vehicles" type="PanelContainer" parent="Arsenal/Control" unique_id=1283869917]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Arsenal/CurrencyPanel/back" to="." method="_on_back_pressed"]

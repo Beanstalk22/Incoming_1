@@ -8,8 +8,14 @@
 [ext_resource type="AudioStream" uid="uid://dgedaao113o4t" path="res://audio/freesound_community-072807_heavy-machine-gun-50-caliber-39765.wav" id="5_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://btqj2rcmuy2r7" path="res://Models/low_poly_lewis_gun.glb" id="6_k8v55"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8v55"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_k8v55"]
-size = Vector3(1, 3, 1)
+material = SubResource("StandardMaterial3D_k8v55")
+size = Vector3(0.1, 4.8, 0.1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5k1dv"]
 data = PackedVector3Array(-0.5, 1.5, 0.5, 0.5, 1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, -0.5, 0.5, -1.5, -0.5, -0.5, 1.5, -0.5, -0.5, -1.5, -0.5, 0.5, -1.5, -0.5, 0.5, 1.5, 0.5, 0.5, 1.5, -0.5, 0.5, -1.5, 0.5, 0.5, 1.5, -0.5, 0.5, -1.5, -0.5, 0.5, -1.5, 0.5, -0.5, 1.5, -0.5, -0.5, 1.5, 0.5, -0.5, -1.5, -0.5, -0.5, 1.5, 0.5, -0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, 1.5, 0.5, -0.5, 1.5, 0.5, 0.5, 1.5, -0.5, -0.5, 1.5, 0.5, -0.5, 1.5, -0.5, 0.5, 1.5, -0.5, -0.5, -1.5, 0.5, 0.5, -1.5, 0.5, -0.5, -1.5, -0.5, 0.5, -1.5, 0.5, 0.5, -1.5, -0.5, -0.5, -1.5, -0.5)
@@ -83,6 +89,11 @@ far = 1000.0
 [node name="MountPos" type="Marker3D" parent="gun/base/turret" unique_id=549632960]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1200218, 0.97243595, 0)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="gun/base/turret" unique_id=1388235080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49001047, -1.2175808, 0)
+mesh = SubResource("BoxMesh_k8v55")
+skeleton = NodePath("../../../..")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="gun" unique_id=1325825306]
 
 [node name="Label" type="Label" parent="gun/CanvasLayer" unique_id=237873569]
@@ -91,20 +102,29 @@ offset_bottom = 23.0
 size_flags_horizontal = 0
 script = ExtResource("4_sweqy")
 
-[node name="Label2" type="Label" parent="gun/CanvasLayer" unique_id=1919591268]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="ammo_label" type="Label" parent="gun/CanvasLayer" unique_id=1501831269]
+unique_name_in_owner = true
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GunHp" type="ProgressBar" parent="gun/CanvasLayer" unique_id=1607794444]
+custom_minimum_size = Vector2(100, 10)
+offset_left = 696.0
+offset_top = 688.0
+offset_right = 796.0
+offset_bottom = 715.0
 
 [node name="Camera3D" type="Camera3D" parent="gun" unique_id=200804717]
 transform = Transform3D(-0.9659258, -0.12940952, 0.22414389, 2.1855694e-08, 0.8660254, 0.5, -0.25881907, 0.4829629, -0.83651626, 1, 12.212307, -16)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1388235080]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3323579, 0)
-visible = false
-mesh = SubResource("BoxMesh_k8v55")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1211370815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3323579, 0)
 shape = SubResource("ConcavePolygonShape3D_5k1dv")
-
-[node name="Node" type="Node" parent="." unique_id=4800066]

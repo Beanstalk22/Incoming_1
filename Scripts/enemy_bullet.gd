@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var hit_particle_scene: PackedScene = preload("res://explode_hit.tscn")
-@export var speed: float = 60.0
+@export var speed: float = 100.0
 @export var damage: int = 25
 @export var max_lifetime: float = 7.0
 

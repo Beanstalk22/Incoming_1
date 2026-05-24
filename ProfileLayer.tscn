@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://xkiu8n47a3t7"]
+
+[ext_resource type="Script" uid="uid://cvbmck8rhh2rh" path="res://ProfileLayer.gd" id="1_r4okm"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_u5kb0"]
+
+[node name="CanvasLayer" type="Control" unique_id=1712970220]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4okm")
+
+[node name="ProfileLayer" type="Control" parent="." unique_id=1167629334]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ProfileLayer" unique_id=1149755086]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_right = 200.0
+offset_bottom = 4.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProfileLayer/PanelContainer" unique_id=1513157587]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="ProfileLayer/PanelContainer/VBoxContainer" unique_id=549969281]
+layout_mode = 2
+text = "Back"
+
+[node name="Control" type="Control" parent="ProfileLayer/PanelContainer/VBoxContainer" unique_id=1594727124]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="Profile" type="Button" parent="ProfileLayer/PanelContainer/VBoxContainer" unique_id=831132639]
+layout_mode = 2
+text = "Profile"
+
+[node name="Statistic" type="Button" parent="ProfileLayer/PanelContainer/VBoxContainer" unique_id=1794127569]
+layout_mode = 2
+text = "Statistics"
+
+[node name="Account" type="Button" parent="ProfileLayer/PanelContainer/VBoxContainer" unique_id=1585283215]
+layout_mode = 2
+text = "Account"
+
+[node name="Control" type="Control" parent="ProfileLayer" unique_id=579879050]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="profile" type="Panel" parent="ProfileLayer/Control" unique_id=1353097929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="profile pic" type="TextureRect" parent="ProfileLayer/Control/profile" unique_id=187757739]
+layout_mode = 0
+offset_right = 184.0
+offset_bottom = 184.0
+texture = ExtResource("2_u5kb0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProfileLayer/Control/profile" unique_id=1402703384]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 50.0
+offset_right = 239.0
+offset_bottom = 100.0
+
+[node name="NameLabel" type="Label" parent="ProfileLayer/Control/profile/VBoxContainer" unique_id=105686277]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NAME:"
+
+[node name="LevelLabel" type="Label" parent="ProfileLayer/Control/profile/VBoxContainer" unique_id=1023210641]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="statistics" type="Panel" parent="ProfileLayer/Control" unique_id=313185929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProfileLayer/Control/statistics" unique_id=1092719665]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WaveLabel" type="Label" parent="ProfileLayer/Control/statistics/VBoxContainer" unique_id=2050745668]
+layout_mode = 2
+
+[node name="TakeDowns" type="Label" parent="ProfileLayer/Control/statistics/VBoxContainer" unique_id=769005172]
+layout_mode = 2
+
+[node name="Repairs" type="Label" parent="ProfileLayer/Control/statistics/VBoxContainer" unique_id=648248815]
+layout_mode = 2
+
+[node name="accounts" type="Panel" parent="ProfileLayer/Control" unique_id=661094172]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProfileLayer/Control/accounts" unique_id=869032138]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatusLabel" type="Label" parent="ProfileLayer/Control/accounts/VBoxContainer" unique_id=2084671202]
+layout_mode = 2
+
+[connection signal="pressed" from="ProfileLayer/PanelContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ProfileLayer/PanelContainer/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="ProfileLayer/PanelContainer/VBoxContainer/Statistic" to="." method="_on_statistic_pressed"]
+[connection signal="pressed" from="ProfileLayer/PanelContainer/VBoxContainer/Account" to="." method="_on_account_pressed"]

@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://kn2ke1681y76"]
+
+[ext_resource type="Script" uid="uid://dwi6c5ktmode4" path="res://menu_pause_settings.gd" id="1_s3do0"]
+
+[node name="Menu_pause" type="Control" unique_id=1961936385]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s3do0")
+
+[node name="Panel" type="Panel" parent="." unique_id=1096282921]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.0
+offset_top = -280.0
+offset_right = 412.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel" unique_id=1041072305]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContainer" unique_id=1765295143]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Settings"
+
+[node name="PanelContainer3" type="PanelContainer" parent="Panel" unique_id=2035837285]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 824.0
+offset_bottom = 560.0
+
+[node name="General" type="ColorRect" parent="Panel/PanelContainer3" unique_id=797793551]
+layout_mode = 2
+color = Color(0, 1, 0, 0.23137255)
+
+[node name="NameSetter" type="HBoxContainer" parent="Panel/PanelContainer3/General" unique_id=459845100]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 417.0
+offset_bottom = 130.0
+
+[node name="Label" type="Label" parent="Panel/PanelContainer3/General/NameSetter" unique_id=830133394]
+layout_mode = 2
+text = "Player Name"
+
+[node name="Control" type="Control" parent="Panel/PanelContainer3/General/NameSetter" unique_id=287035086]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="name_input" type="LineEdit" parent="Panel/PanelContainer3/General/NameSetter" unique_id=775396882]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Sound" type="ColorRect" parent="Panel/PanelContainer3" unique_id=2106699095]
+layout_mode = 2
+color = Color(1, 0, 0, 0.21176471)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer3/Sound" unique_id=559767115]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 364.0
+offset_bottom = 130.0
+
+[node name="master" type="HBoxContainer" parent="Panel/PanelContainer3/Sound/VBoxContainer" unique_id=1699300331]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContainer3/Sound/VBoxContainer/master" unique_id=2078901144]
+layout_mode = 2
+text = "Master"
+
+[node name="Control" type="Control" parent="Panel/PanelContainer3/Sound/VBoxContainer/master" unique_id=1891218750]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="master_slider" type="HSlider" parent="Panel/PanelContainer3/Sound/VBoxContainer/master" unique_id=396596944]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="music" type="HBoxContainer" parent="Panel/PanelContainer3/Sound/VBoxContainer" unique_id=601649321]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContainer3/Sound/VBoxContainer/music" unique_id=2096015417]
+layout_mode = 2
+text = "Music"
+
+[node name="Control" type="Control" parent="Panel/PanelContainer3/Sound/VBoxContainer/music" unique_id=1693815499]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="music_slider" type="HSlider" parent="Panel/PanelContainer3/Sound/VBoxContainer/music" unique_id=335335417]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="sfx" type="HBoxContainer" parent="Panel/PanelContainer3/Sound/VBoxContainer" unique_id=1766408413]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContainer3/Sound/VBoxContainer/sfx" unique_id=1415159058]
+layout_mode = 2
+text = "SFX"
+
+[node name="Control" type="Control" parent="Panel/PanelContainer3/Sound/VBoxContainer/sfx" unique_id=307972931]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="sfx_slider" type="HSlider" parent="Panel/PanelContainer3/Sound/VBoxContainer/sfx" unique_id=1203189867]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Controls" type="ColorRect" parent="Panel/PanelContainer3" unique_id=1108597151]
+layout_mode = 2
+color = Color(0.05000019, 0, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer3/Controls" unique_id=1755014026]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 364.0
+offset_bottom = 130.0
+
+[node name="sensitivity" type="HBoxContainer" parent="Panel/PanelContainer3/Controls/VBoxContainer" unique_id=1841739153]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContainer3/Controls/VBoxContainer/sensitivity" unique_id=674653628]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="Control" type="Control" parent="Panel/PanelContainer3/Controls/VBoxContainer/sensitivity" unique_id=63934931]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+
+[node name="mouse_slider" type="HSlider" parent="Panel/PanelContainer3/Controls/VBoxContainer/sensitivity" unique_id=1155735300]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="zoom_sens" type="HBoxContainer" parent="Panel/PanelContainer3/Controls/VBoxContainer" unique_id=1777176559]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/PanelContainer3/Controls/VBoxContainer/zoom_sens" unique_id=1282450890]
+layout_mode = 2
+text = "Zoom Sensitivity"
+
+[node name="Control" type="Control" parent="Panel/PanelContainer3/Controls/VBoxContainer/zoom_sens" unique_id=73754012]
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
+
+[node name="zoom_slider" type="HSlider" parent="Panel/PanelContainer3/Controls/VBoxContainer/zoom_sens" unique_id=687897131]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Buttons" type="PanelContainer" parent="Panel/PanelContainer3" unique_id=871716700]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/PanelContainer3/Buttons" unique_id=384958740]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="General" type="Button" parent="Panel/PanelContainer3/Buttons/VBoxContainer" unique_id=378968170]
+layout_mode = 2
+text = "General"
+
+[node name="Sound" type="Button" parent="Panel/PanelContainer3/Buttons/VBoxContainer" unique_id=1971853887]
+layout_mode = 2
+text = "Sound"
+
+[node name="Controls" type="Button" parent="Panel/PanelContainer3/Buttons/VBoxContainer" unique_id=1309352399]
+layout_mode = 2
+text = "Controls"
+
+[node name="Back" type="Button" parent="Panel/PanelContainer3" unique_id=1240809092]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
+[connection signal="text_changed" from="Panel/PanelContainer3/General/NameSetter/name_input" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="Panel/PanelContainer3/Buttons/VBoxContainer/General" to="." method="_on_general_pressed"]
+[connection signal="pressed" from="Panel/PanelContainer3/Buttons/VBoxContainer/Sound" to="." method="_on_sound_pressed"]
+[connection signal="pressed" from="Panel/PanelContainer3/Buttons/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Panel/PanelContainer3/Back" to="." method="_on_back_pressed"]

@@ -9,6 +9,7 @@ size = Vector3(1, 1, 0.76904297)
 size = Vector3(1.9555664, 1.4953003, 8.980698)
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=2102590242]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 disable_mode = 1
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1967743954]

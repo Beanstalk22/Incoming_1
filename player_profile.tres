@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerData" format=3]
+
+[ext_resource type="Script" path="res://GlobalScrpits/player_data.gd" id="1_5h5c5"]
+
+[resource]
+script = ExtResource("1_5h5c5")
+player_name = "Vinci"
+level = 3
+current_xp = 108
+sfx_volume = 0.7

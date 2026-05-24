@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ca2oxd2jm21jl"]
+
+[ext_resource type="Script" uid="uid://c8hg52py1jq33" path="res://pause_menu_2.gd" id="1_1dnap"]
+
+[node name="Pause_menu_2" type="Control" unique_id=1485542092]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_1dnap")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1803593461]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=1251382250]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" type="Button" parent="VBoxContainer" unique_id=1703257340]
+layout_mode = 2
+text = "Restart"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=468120028]
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer" unique_id=2141247971]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

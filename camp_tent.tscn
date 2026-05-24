@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dyowfvjw2ahs2"]
+
+[ext_resource type="PackedScene" uid="uid://c55wvc81xdohg" path="res://Models/camp_tent.glb" id="1_07ps2"]
+
+[node name="camp_tent" unique_id=658474862 instance=ExtResource("1_07ps2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Cone_001" parent="." index="0" unique_id=482652626]
+transform = Transform3D(0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071068, 0, 1, 0)
+visible = false
+
+[node name="@StaticBody3D@58950" parent="." index="1" unique_id=1254492785]
+transform = Transform3D(0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071068, 0, 1, 0)
+
+[node name="Cone" parent="." index="2" unique_id=495478673]
+transform = Transform3D(0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071068, 0, 1, 0)

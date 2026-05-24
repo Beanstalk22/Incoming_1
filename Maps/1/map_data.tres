@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CustomMapData" format=3]
 
-[ext_resource type="Script" path="res://Placeable_item_data.gd" id="1_tnbl5"]
-[ext_resource type="Script" path="res://custom_map.gd" id="2_ciwpt"]
+[ext_resource type="Script" uid="uid://beb6sxrm1eryr" path="res://GlobalScrpits/Placeable_item_data.gd" id="1_tnbl5"]
+[ext_resource type="Script" uid="uid://dbcntfqxx54uy" path="res://custom_map.gd" id="2_ciwpt"]
 
 [sub_resource type="Resource" id="Resource_d0oin"]
 script = ExtResource("1_tnbl5")

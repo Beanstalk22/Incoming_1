@@ -1,13 +1,49 @@
 [gd_scene format=3 uid="uid://bwt1nahtvuu1k"]
 
 [ext_resource type="Script" uid="uid://b4mcla0e04kyc" path="res://Scripts/player.gd" id="1_jsb3h"]
+[ext_resource type="Script" uid="uid://gh1mceqsuj5j" path="res://GlobalScrpits/crew_stats.gd" id="2_nvl01"]
 [ext_resource type="Script" uid="uid://dlium2d24mdva" path="res://Scripts/score.gd" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://camx1x3ufa55x" path="res://hotbar.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://8725pdx8x6rj" path="res://Wrench.tscn" id="4_sweqy"]
+[ext_resource type="Script" uid="uid://jxr8yco2g8jg" path="res://wrench.gd" id="5_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://csle4go625hm4" path="res://Binocular.tscn" id="5_2hs0m"]
+[ext_resource type="Script" uid="uid://bd25yb35rapdi" path="res://binocular.gd" id="7_dw050"]
+[ext_resource type="Texture2D" uid="uid://vu6t6lwj31wh" path="res://Texture/icons/maintenance-warning-filled-svgrepo-com.svg" id="8_nvl01"]
+[ext_resource type="Texture2D" uid="uid://hfri85ckmvk" path="res://Texture/91-916260_then-on-image-right-click-save-as-looking.png" id="10_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://432kp0jg2lbg" path="res://Texture/icons/binoculars-filled-svgrepo-com.svg" id="11_ivps1"]
+
+[sub_resource type="Resource" id="Resource_ivps1"]
+script = ExtResource("2_nvl01")
+metadata/_custom_type_script = "uid://gh1mceqsuj5j"
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0bd2a"]
 points = PackedVector3Array(-0.5, -0.5, 0, 0, -0.5, -0.5, -0.35356304, -0.8535631, 0, 0, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0, -0.8535631, -0.35356304, 0, 0.5, -0.5, 0, -1, 0, 0, -0.8535631, 0.35346514, 0, 0.5, 0.5, -0.35356304, 0.8533673, 0, 0.35346514, -0.8535631, 0, 0.5, 0.5, 0, 0, 0.8533673, -0.35356304, 0, 0.8533673, 0.35346514, 0, 1, 0, 0.35346514, 0.8533673, 0)
 
 [node name="player" type="CharacterBody3D" unique_id=520877204]
 script = ExtResource("1_jsb3h")
+crew_stats = SubResource("Resource_ivps1")
+
+[node name="binocularing" type="Control" parent="." unique_id=282050669]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="binocularing" unique_id=1926827416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_n7ghd")
+expand_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=669160820]
 shape = SubResource("ConvexPolygonShape3D_0bd2a")
@@ -27,9 +63,83 @@ debug_shape_thickness = 5
 [node name="HoldPos" type="Marker3D" parent="CameraPivot/camera" unique_id=1550758526]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5796169, -0.48994827, -1.0017725)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1270661208]
+[node name="control" type="Control" parent="." unique_id=798007866]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1489871590]
+[node name="Label" type="Label" parent="control" unique_id=1489871590]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("2_onrkg")
+
+[node name="interact_label" type="Label" parent="control" unique_id=308338919]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = -16.0
+offset_right = 148.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RepairUI" type="ProgressBar" parent="control" unique_id=740882997]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control" unique_id=652865712]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HealthOfDefending" type="ProgressBar" parent="control/VBoxContainer" unique_id=932097157]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control/VBoxContainer" unique_id=1007587813]
+layout_mode = 2
+
+[node name="CharacterHealth" type="ProgressBar" parent="control/VBoxContainer/VBoxContainer" unique_id=595783368]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="Hotbar" parent="." unique_id=285283303 instance=ExtResource("3_i3pqv")]
+mouse_filter = 2
+
+[node name="Wrench" parent="." unique_id=1420913510 instance=ExtResource("4_sweqy")]
+transform = Transform3D(0.4330127, -0.24148145, 0.06470476, 0.25000003, 0.4182582, -0.112071946, 0, 0.12940954, 0.48296297, 0.5296783, 0.63231814, -1.4626043)
+script = ExtResource("5_1jxqw")
+item_icon = ExtResource("8_nvl01")
+
+[node name="Binocular" parent="." unique_id=2034934577 instance=ExtResource("5_2hs0m")]
+transform = Transform3D(0.19318517, 2.262668e-09, -0.05176381, 0.05176381, -8.444392e-09, 0.19318517, 0, -0.2, -8.742278e-09, 0.959261, 0.49643493, -0.8859093)
+script = ExtResource("7_dw050")
+item_icon = ExtResource("11_ivps1")

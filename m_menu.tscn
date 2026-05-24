@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://4o58ocjcxy3e"]
+
+[ext_resource type="Script" uid="uid://c5oflojtvtw6s" path="res://m_menu.gd" id="1_32f0o"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_72d8a"]
+[ext_resource type="Script" uid="uid://d2tcsj8rhra1y" path="res://GlobalScrpits/level_bar.gd" id="3_3g4gj"]
+
+[node name="CanvasLayer" type="Control" unique_id=524346803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_32f0o")
+
+[node name="M_menu" type="Control" parent="." unique_id=640724552]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="M_menu" unique_id=352541345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.39607844)
+
+[node name="Top_panel" type="PanelContainer" parent="M_menu" unique_id=1402687397]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 62.0
+grow_horizontal = 2
+
+[node name="Settings" type="Button" parent="M_menu/Top_panel" unique_id=1339650542]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M_menu/Top_panel" unique_id=2136088664]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Credit" type="Button" parent="M_menu/Top_panel/HBoxContainer" unique_id=1541327759]
+layout_mode = 2
+
+[node name="Gold" type="Button" parent="M_menu/Top_panel/HBoxContainer" unique_id=2096894977]
+layout_mode = 2
+
+[node name="Crew_Points" type="Button" parent="M_menu/Top_panel/HBoxContainer" unique_id=1991425776]
+layout_mode = 2
+text = "Research Point: "
+
+[node name="play" type="Button" parent="M_menu" unique_id=1797960905]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.9804764, 0.99529535)
+text = "PLAY"
+icon = ExtResource("1_72d8a")
+
+[node name="profile_container" type="PanelContainer" parent="M_menu" unique_id=575741382]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M_menu/profile_container" unique_id=888942360]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="M_menu/profile_container/HBoxContainer" unique_id=610773821]
+layout_mode = 2
+texture = ExtResource("1_72d8a")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="M_menu/profile_container/HBoxContainer" unique_id=497713835]
+layout_mode = 2
+alignment = 1
+
+[node name="Profile" type="Button" parent="M_menu/profile_container/HBoxContainer/VBoxContainer" unique_id=1678878886]
+layout_mode = 2
+text = "Profile"
+flat = true
+
+[node name="ProgressBar" type="ProgressBar" parent="M_menu/profile_container/HBoxContainer/VBoxContainer" unique_id=841603330]
+layout_mode = 2
+script = ExtResource("3_3g4gj")
+
+[node name="Social_Panel" type="Panel" parent="M_menu" unique_id=1827856718]
+custom_minimum_size = Vector2(150, 250)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_right = 120.0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M_menu/Social_Panel" unique_id=1528159377]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "wwwww"
+
+[node name="Button" type="Button" parent="M_menu/Social_Panel/HBoxContainer" unique_id=241005892]
+layout_mode = 2
+text = "ADD"
+
+[node name="Button2" type="Button" parent="M_menu/Social_Panel/HBoxContainer" unique_id=860936362]
+layout_mode = 2
+text = "List"
+
+[node name="Button3" type="Button" parent="M_menu/Social_Panel/HBoxContainer" unique_id=1333743541]
+layout_mode = 2
+text = "Squad"
+
+[node name="WorldChat" type="Panel" parent="M_menu" unique_id=1484055209]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Arsenal" type="Button" parent="M_menu" unique_id=878756136]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Arsenal"
+
+[connection signal="pressed" from="M_menu/Top_panel/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="M_menu/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="M_menu/profile_container/HBoxContainer/VBoxContainer/Profile" to="." method="_on_profile_pressed"]
+[connection signal="pressed" from="M_menu/Arsenal" to="." method="_on_arsenal_pressed"]

@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bh2y8qqfyt6bg" path="res://MapEditorLogic.gd" id="1_7udqd"]
 [ext_resource type="Script" uid="uid://bnhu72dj17ts8" path="res://Scripts/fly_camera.gd" id="2_xsg28"]
-[ext_resource type="Script" uid="uid://dkmqsey43cr8x" path="res://items.gd" id="4_xsg28"]
+[ext_resource type="Script" uid="uid://dkmqsey43cr8x" path="res://GlobalScrpits/items.gd" id="4_xsg28"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7udqd"]
 sky_horizon_color = Color(0.84561735, 0.9363968, 1.0211811, 1)
 ground_bottom_color = Color(0.15686275, 0.4509804, 0.69411767, 1)
 ground_horizon_color = Color(0.84561735, 0.9363968, 1.0211811, 1)
 
-[sub_resource type="Sky" id="Sky_xsg28"]
+[sub_resource type="Sky" id="Sky_7udqd"]
 sky_material = SubResource("ProceduralSkyMaterial_7udqd")
 
 [sub_resource type="Environment" id="Environment_13cpq"]
 background_mode = 2
-sky = SubResource("Sky_xsg28")
+sky = SubResource("Sky_7udqd")
 tonemap_mode = 3
 fog_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 0.7
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7udqd"]
-size = Vector2(200, 200)
+size = Vector2(500, 500)
 subdivide_width = 100
 subdivide_depth = 100
 
@@ -57,7 +57,8 @@ environment = SubResource("Environment_13cpq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain" unique_id=490284549]
 
-[node name="1" type="MeshInstance3D" parent="Terrain/StaticBody3D" unique_id=989698228]
+[node name="terrainmesh" type="MeshInstance3D" parent="Terrain/StaticBody3D" unique_id=989698228]
+unique_name_in_owner = true
 transform = Transform3D(0.99971646, 0.0123508265, 0.020356013, -0.012174862, 0.99988765, -0.008745207, -0.020461744, 0.008494881, 0.99975455, 0.0105268955, 0.035863876, 0.26208448)
 mesh = SubResource("PlaneMesh_7udqd")
 skeleton = NodePath("../..")
@@ -108,18 +109,6 @@ layout_mode = 2
 focus_mode = 1
 text = "Redo"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control" unique_id=1306919334]
-layout_mode = 0
-offset_top = 31.0
-offset_right = 150.0
-offset_bottom = 511.0
-scale = Vector2(0.98871017, 0.929084)
-
-[node name="Items" type="GridContainer" parent="CanvasLayer/Control/ScrollContainer" unique_id=109739438 node_paths=PackedStringArray("editor")]
-layout_mode = 2
-script = ExtResource("4_xsg28")
-editor = NodePath("../../../..")
-
 [node name="modes" type="Button" parent="CanvasLayer/Control" unique_id=623282017]
 layout_mode = 1
 anchors_preset = 2
@@ -161,19 +150,42 @@ grow_vertical = 0
 text = "Exit"
 
 [node name="Control" type="Control" parent="CanvasLayer/Control" unique_id=2070452163]
+layout_direction = 4
 layout_mode = 1
-anchor_left = 0.7222222
-anchor_top = 0.93333334
-anchor_right = 0.7222222
-anchor_bottom = 0.93333334
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+mouse_filter = 2
 
 [node name="Terrain_settings" type="HBoxContainer" parent="CanvasLayer/Control/Control" unique_id=1098769337]
-layout_mode = 0
-offset_right = 194.0
-offset_bottom = 31.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -194.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Control/Terrain_settings" unique_id=688604938]
+layout_direction = 4
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control/Terrain_settings/HBoxContainer" unique_id=1551150704]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+text = "brush size"
+
+[node name="BrushSize" type="HSlider" parent="CanvasLayer/Control/Control/Terrain_settings/HBoxContainer" unique_id=1466730848]
+layout_mode = 2
+min_value = 2.0
+max_value = 30.0
+value = 2.0
+rounded = true
 
 [node name="Add" type="Button" parent="CanvasLayer/Control/Control/Terrain_settings" unique_id=278451339]
 layout_mode = 2
@@ -192,6 +204,26 @@ layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_7udqd")
 text = "Smooth"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control" unique_id=1306919334]
+clip_contents = false
+layout_mode = 0
+offset_top = 31.0
+offset_right = 150.0
+offset_bottom = 511.0
+scale = Vector2(1.0098573, 0.92663366)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer" unique_id=1149106258]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Items" type="GridContainer" parent="CanvasLayer/Control/ScrollContainer/VBoxContainer" unique_id=109739438 node_paths=PackedStringArray("editor")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("4_xsg28")
+editor = NodePath("../../../../..")
 
 [node name="ErrorDialog" type="AcceptDialog" parent="." unique_id=123459827]
 oversampling_override = 1.0

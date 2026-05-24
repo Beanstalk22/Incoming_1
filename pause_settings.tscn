@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://csiwq1rrjv2c"]
+
+[ext_resource type="Script" uid="uid://dht6klvhdt7os" path="res://pause_settings.gd" id="1_4pk18"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2143408204]
+process_mode = 3
+script = ExtResource("1_4pk18")
+
+[node name="Settings" type="Control" parent="." unique_id=1732592572]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Settings" unique_id=200849159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioLayer" type="Panel" parent="Settings/Control" unique_id=1706379302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Settings/Control/AudioLayer" unique_id=1662861953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2166667, 1, 0, 1)
+
+[node name="Control2" type="Control" parent="Settings" unique_id=667917889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoLayer" type="Panel" parent="Settings/Control2" unique_id=370910873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Settings/Control2/VideoLayer" unique_id=372362078]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.9166666, 0, 1)
+
+[node name="Control3" type="Control" parent="Settings" unique_id=389508581]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlsLayer" type="Panel" parent="Settings/Control3" unique_id=1038162034]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="Settings/Control3/ControlsLayer" unique_id=741754193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.23333359, 1, 1)
+
+[node name="Control4" type="Control" parent="Settings" unique_id=1484977128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MultiplayerLayer" type="Panel" parent="Settings/Control4" unique_id=577820870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect4" type="ColorRect" parent="Settings/Control4/MultiplayerLayer" unique_id=104874370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="Settings" unique_id=1937056470]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+offset_right = 150.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/Panel" unique_id=190292368]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_right = 98.0
+offset_bottom = 136.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Back" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=56295532]
+layout_mode = 2
+text = "back"
+
+[node name="Control" type="Control" parent="Settings/Panel/VBoxContainer" unique_id=2136982998]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Audio" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=769970006]
+layout_mode = 2
+text = "audio"
+
+[node name="Video" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=1354495557]
+layout_mode = 2
+text = "video"
+
+[node name="Controls" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=943663129]
+layout_mode = 2
+text = "controls"
+
+[node name="Multiplayer_btn" type="Button" parent="Settings/Panel/VBoxContainer" unique_id=32290853]
+layout_mode = 2
+text = "multiplayer"
+
+[connection signal="pressed" from="Settings/Panel/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings/Panel/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Settings/Panel/VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Settings/Panel/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Settings/Panel/VBoxContainer/Multiplayer_btn" to="." method="_on_multiplayer_btn_pressed"]

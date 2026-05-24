@@ -55,14 +55,12 @@ emitting = false
 [node name="wind" type="AudioStreamPlayer3D" parent="audio" unique_id=105468293]
 stream = ExtResource("7_bqgja")
 autoplay = true
-stream_paused = true
 bus = &"wind"
 playback_type = 1
 
 [node name="click" type="AudioStreamPlayer3D" parent="audio" unique_id=1061354148]
 stream = ExtResource("9_p1nn7")
 autoplay = true
-stream_paused = true
 bus = &"mechanical"
 
 [node name="engine" type="AudioStreamPlayer3D" parent="audio" unique_id=1045395115]
@@ -72,7 +70,6 @@ unit_size = 20.0
 max_db = 5.0
 pitch_scale = 1.3
 autoplay = true
-stream_paused = true
 bus = &"engine"
 playback_type = 1
 doppler_tracking = 1
